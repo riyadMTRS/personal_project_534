@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Facilities | Gozal Tea</title>
+    <meta name="description" content="Discover Gozal Tea's state-of-the-art tea production and packaging facilities in the UAE.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Custom CSS to define a luxurious palette and apply fonts */
+        :root {
+            --color-primary-green-900: #1a362a; /* Deep Forest Green */
+            --color-primary-green-700: #2d572c; /* Gozal Green */
+            --color-primary-green-500: #5d8a63; /* Muted Green */
+            --color-accent-gold: #b8860b; /* Muted Gold for luxury */
+            --color-off-white: #f8f8f8; /* Soft off-white for background */
+            --color-charcoal: #333333; /* Deep charcoal for text */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--color-charcoal);
+            background-color: var(--color-off-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-primary-green-900);
+        }
+        /* Custom scroll-behavior for smooth scrolling on anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Styling for the custom message box (instead of alert) */
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            text-align: center;
+            max-width: 90%;
+            width: 400px;
+            border: 1px solid var(--color-primary-green-500); /* Subtle border */
+        }
+        .message-box button {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+            color: white;
+            font-weight: 600;
+            border-radius: 0.5rem; /* Rounded corners */
+            transition-property: background-color;
+            transition-duration: 300ms;
+            background-color: var(--color-primary-green-700);
+            border: none;
+        }
+        .message-box button:hover {
+            background-color: var(--color-primary-green-900);
+        }
+
+        /* Enhanced scroll-responsive backgrounds */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* --- SVG Logo Animation Styles (UPDATED) --- */
+        /* Define the total loop duration for the logo animation */
+        :root {
+            --total-loop-duration: 15s; /* Total animation loop duration */
+        }
+
+        /* Keyframes for the Gozal Seal's blooming emergence and full lifecycle */
+        @keyframes sealAnimation {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) rotate(0deg);
+                filter: drop-shadow(0 0 0px rgba(212, 175, 55, 0));
+            }
+            4.67% { /* 0.7s */
+                opacity: 1;
+                transform: scale(1.05) rotate(5deg);
+                filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.7));
+            }
+            6.67% { /* 1.0s */
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+                filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.4));
+            }
+            93.33% { /* 14.0s */
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+                filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.4));
+            }
+            100% { /* 15.0s */
+                opacity: 0;
+                transform: scale(0.95) rotate(0deg); /* Slight scale down on exit */
+            }
+        }
+
+        /* Keyframes for elegant straight text slide-in and full lifecycle */
+        @keyframes gozalTeaStraightAnimation {
+            0%, 6.67% { /* 1.0s */
+                opacity: 0;
+                transform: translateX(-100px); /* Start off-screen left */
+                text-shadow: none;
+            }
+            13.33% { /* 2.0s */
+                opacity: 1;
+                transform: translateX(5px); /* Overshoot slightly */
+                text-shadow: 0 0 10px rgba(0,0,0,0.4);
+            }
+            15% { /* 2.25s */
+                opacity: 1;
+                transform: translateX(0); /* Settle */
+                text-shadow: 0 0 5px rgba(0,0,0,0.2);
+            }
+            93.33% { /* 14.0s */
+                opacity: 1;
+                transform: translateX(0);
+                text-shadow: 0 0 5px rgba(0,0,0,0.2);
+            }
+            100% { /* 15.0s */
+                opacity: 0;
+                transform: translateX(0);
+                text-shadow: none;
+            }
+        }
+
+        /* Keyframes for subtle tagline slide-in from bottom and full lifecycle */
+        @keyframes wellingtonTextAnimation {
+            0%, 14.67% { /* 2.2s */
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            21.33% { /* 3.2s */
+                opacity: 1;
+                transform: translateY(0);
+            }
+            34.67% { /* 5.2s */
+                opacity: 1;
+                transform: translateY(0);
+            }
+            39.33% { /* 5.9s */
+                opacity: 0;
+                transform: translateY(0);
+            }
+            100% { /* 15.0s */
+                opacity: 0;
+                transform: translateY(0);
+            }
+        }
+
+        /* Keyframes for golden aura expansion and full lifecycle */
+        @keyframes goldenAuraAnimation {
+            0%, 20% { /* 3.0s */
+                r: 0;
+                opacity: 0;
+            }
+            33.33% { /* 5.0s */
+                r: 150px;
+                opacity: 1;
+            }
+            40% { /* 6.0s */
+                r: 200px;
+                opacity: 0;
+            }
+            100% { /* 15.0s */
+                r: 0;
+                opacity: 0;
+            }
+        }
+
+        /* Keyframes for outer circle drawing and full lifecycle */
+        @keyframes outerCircleAnimation {
+            0% {
+                stroke-dashoffset: 1131; /* Starts hidden (circumference of 180 radius) */
+                opacity: 0;
+            }
+            23.33% { /* 3.5s */
+                stroke-dashoffset: 1131;
+                opacity: 0;
+            }
+            30% { /* 4.5s */
+                stroke-dashoffset: 0; /* Drawn */
+                opacity: 1;
+            }
+            93.33% { /* 14.0s */
+                opacity: 1;
+            }
+            100% { /* 15.0s */
+                stroke-dashoffset: 0;
+                opacity: 0; /* Fade out */
+            }
+        }
+
+        /* Keyframes for stardust movement and full lifecycle */
+        @keyframes stardustCircleAnimation {
+            0% {
+                opacity: 0;
+            }
+            25.33% { /* 3.8s */
+                opacity: 0;
+            }
+            25.34% { /* Just after hidden, appear instantly */
+                opacity: 1;
+            }
+            93.33% { /* 14.0s */
+                opacity: 1; /* Hold */
+            }
+            100% { /* 15.0s */
+                opacity: 0; /* Fade out */
+            }
+        }
+
+        /* Keyframes for continuous stardust flow (applied separately) */
+        @keyframes stardustFlow {
+            0% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: 1131; } /* Move full circumference */
+        }
+
+        /* NEW: Keyframes for U-shaped slogan animation */
+        @keyframes uSloganAnimation {
+            0%, 40% { /* 6.0s - before fade in */
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            46.67% { /* 7.0s - fully faded in and scaled */
+                opacity: 1;
+                transform: scale(1);
+            }
+            86.67% { /* 13.0s - hold */
+                opacity: 1;
+                transform: scale(1);
+            }
+            93.33% { /* 14.0s - fade out */
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* Keyframes for EST 1970 text animation */
+        @keyframes est1970Animation {
+            0%, 46% { /* Start hidden, slightly after slogan begins to appear */
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            50% { /* Fully visible */
+                opacity: 1;
+                transform: translateY(0);
+            }
+            85% { /* Hold visible */
+                opacity: 1;
+                transform: translateY(0);
+            }
+            90% { /* Start fading out */
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% { /* Fully hidden */
+                opacity: 0;
+            }
+        }
+
+        /* Apply animations to elements */
+        .gozal-seal {
+            animation: sealAnimation var(--total-loop-duration) ease-in-out infinite;
+            will-change: transform, opacity, filter; /* Added filter for performance */
+        }
+
+        .gozal-tea-straight-text {
+            animation: gozalTeaStraightAnimation var(--total-loop-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+            will-change: transform, opacity, text-shadow; /* Added text-shadow for performance */
+        }
+
+        .wellington-text {
+            animation: wellingtonTextAnimation var(--total-loop-duration) ease-out infinite;
+            will-change: transform, opacity; /* Added for performance */
+        }
+
+        .outer-circle {
+            animation: outerCircleAnimation var(--total-loop-duration) ease-in-out infinite;
+            will-change: stroke-dashoffset, opacity, filter; /* Added filter for performance */
+            filter: drop-shadow(0px 0px 3px rgba(212, 175, 55, 0.6)); /* Subtle golden glow */
+        }
+
+        .stardust-circle {
+            animation: stardustCircleAnimation var(--total-loop-duration) linear infinite,
+                        stardustFlow 3s linear infinite; /* Separate animation for continuous flow */
+            will-change: stroke-dashoffset, opacity; /* Added for performance */
+        }
+
+        .golden-aura {
+            animation: goldenAuraAnimation var(--total-loop-duration) ease-out infinite;
+            will-change: r, opacity; /* Added for performance */
+        }
+
+        /* NEW SLOGAN ANIMATIONS */
+        .u-slogan-text {
+            animation: uSloganAnimation var(--total-loop-duration) ease-out infinite;
+            transform-origin: 50% 50%; /* Ensure scale animation is centered */
+            will-change: transform, opacity; /* Added for performance */
+        }
+
+        .est-1970-text {
+            animation: est1970Animation var(--total-loop-duration) ease-out infinite;
+            will-change: transform, opacity; /* Added for performance */
+        }
+
+        /* Custom style for the luxurious Gozal Tea header text */
+        .gozal-tea-luxury-header {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-primary-green-900); /* Ensure color is applied */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            position: relative; /* Enable positioning */
+            top: -4px; /* Move text up by 4px */
+        }
+
+        /* Custom style for luxurious text within content */
+        .luxurious-text {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-primary-green-900); /* Deep green for luxury */
+            font-weight: bold; /* Make it bold for emphasis */
+        }
+
+        /* Responsive adjustments for the SVG container (from your provided code) */
+        .svg-container {
+            width: 100%;
+            max-width: 400px; /* Limit max width for larger screens */
+            height: auto;
+            margin: auto; /* Center the container */
+        }
+
+        /* Loading spinner styles */
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: var(--color-primary-green-700);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Header scroll-up/scroll-down styles */
+        .header-hidden {
+            top: -100px; /* Adjust based on actual header height */
+        }
+        .header-visible {
+            top: 0;
+        }
+        header {
+            transition: top 0.3s ease-in-out;
+        }
+
+        /* Facility card specific effects */
+        .facility-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-radius: 0.75rem; /* Consistent rounded corners */
+            overflow: hidden; /* Ensures image corners are also rounded within card */
+        }
+        .facility-card:hover {
+            transform: translateY(-8px); /* Subtle lift effect */
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+        }
+        .facility-card img {
+            border-radius: 0.5rem; /* Slightly smaller rounded corners for image inside card */
+        }
+
+        /* General responsive adjustments */
+        @media (max-width: 768px) {
+            /* Adjust header logo size for mobile */
+            header .flex.items-center > svg {
+                width: 60px; /* Smaller size for mobile header */
+                height: 60px;
+            }
+
+            .svg-container {
+                max-width: 300px; /* Smaller max-width for tablets */
+            }
+            .gozal-tea-straight-text {
+                font-size: 24px;
+            }
+            .wellington-text {
+                font-size: 12px;
+                y: 210px; /* Adjusted Y position for mobile */
+            }
+            .u-slogan-text {
+                font-size: 15px;
+            }
+            .est-1970-text {
+                font-size: 6px;
+                y: 315px; /* Adjusted Y position for EST 1970 on mobile */
+            }
+            #uShapeSloganPath {
+                d: "M 70 240 Q 200 270 330 240"; /* Slightly less deep curve if text is smaller */
+            }
+
+            /* Adjust heading sizes for smaller screens */
+            h1 {
+                font-size: 3.5rem; /* ~56px */
+            }
+            h2 {
+                font-size: 2.5rem; /* ~40px */
+            }
+            h3 {
+                font-size: 1.75rem; /* ~28px */
+            }
+            .text-lg {
+                font-size: 1rem; /* ~16px */
+            }
+            .text-xl {
+                font-size: 1.125rem; /* ~18px */
+            }
+
+            /* Adjust padding for sections */
+            section {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+        }
+
+        @media (max-width: 480px) { /* Even smaller phones */
+            /* Adjust header logo size for very small mobile */
+            header .flex.items-center > svg {
+                width: 50px; /* Even smaller size for very small mobile header */
+                height: 50px;
+            }
+
+            .svg-container {
+                max-width: 250px; /* Even smaller max-width for phones */
+            }
+            .gozal-tea-straight-text {
+                font-size: 20px;
+            }
+            .wellington-text {
+                font-size: 10px;
+                y: 205px; /* Further adjustment for very small screens */
+            }
+            .u-slogan-text {
+                font-size: 13px;
+            }
+            .est-1970-text {
+                font-size: 5px;
+                y: 310px; /* Further adjustment for very small screens */
+            }
+            #uShapeSloganPath {
+                d: "M 70 235 Q 200 265 330 235"; /* Further adjustment to curve for very small screens */
+            }
+
+            /* Further adjust heading sizes for very small screens */
+            h1 {
+                font-size: 3rem; /* ~48px */
+            }
+            h2 {
+                font-size: 2rem; /* ~32px */
+            }
+            h3 {
+                font-size: 1.5rem; /* ~24px */
+            }
+            .text-lg {
+                font-size: 0.9rem; /* ~14.4px */
+            }
+            .text-xl {
+                font-size: 1rem; /* ~16px */
+            }
+
+            /* Adjust padding for sections */
+            section {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header" class="bg-white shadow-sm py-4 fixed w-full z-50 top-0 header-visible">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <svg
+                    viewBox="0 0 400 400"
+                    class="w-20 h-20 md:w-32 md:h-32" /* Adjusted size for header logo */
+                    xmlns="http://www.w3.org/2000/svg"
+                    style="vertical-align: text-bottom;" /* Keeping text-bottom for general alignment within flex container */
+                >
+                    <defs>
+                        <radialGradient id="goldenAura" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                            <stop offset="0%" stop-color="rgba(212, 175, 55, 0.8)" />
+                            <stop offset="70%" stop-color="rgba(212, 175, 55, 0.3)" />
+                            <stop offset="100%" stop-color="rgba(212, 175, 55, 0)" />
+                        </radialGradient>
+                        <path id="gozalTeaStraightPath" d="M 70 180 L 330 180" fill="none" />
+                        <path id="uShapeSloganPath" d="M 70 245 Q 200 275 330 245" fill="none" />
+                        <linearGradient id="mountainGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#1A4314" />
+                            <stop offset="100%" stop-color="#0F2D0F" />
+                        </linearGradient>
+                    </defs>
+
+                    <g class="gozal-seal">
+                        <g class="animated-logo">
+                            <path d="M 150 70 L 200 40 L 250 70 Z" fill="url(#mountainGradient)" stroke="#D4AF37" stroke-width="1" stroke-linejoin="round" />
+                            <path d="M 185 55 L 200 40 L 215 55 Z" fill="#FDFBF6" stroke="#D4AF37" stroke-width="0.5" stroke-linejoin="round" />
+
+                            <path d="M 120 80 L 160 50 L 190 80 Z" fill="url(#mountainGradient)" stroke="#D4AF37" stroke-width="1" stroke-linejoin="round" />
+                            <path d="M 148 62 L 160 50 L 172 62 Z" fill="#FDFBF6" stroke="#D4AF37" stroke-width="0.5" stroke-linejoin="round" />
+
+                            <path d="M 210 80 L 240 50 L 270 80 Z" fill="url(#mountainGradient)" stroke="#D4AF37" stroke-width="1" stroke-linejoin="round" />
+                            <path d="M 233 60 L 240 50 L 247 60 Z" fill="#FDFBF6" stroke="#D4AF37" stroke-width="0.5" stroke-linejoin="round" />
+
+                            <line x1="80" y1="110" x2="320" y2="110" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" />
+                        </g>
+                    </g>
+
+                    <text
+                        font-family="Playfair Display, serif"
+                        font-size="45"
+                        font-weight="bold"
+                        fill="#2C2C2C" /* Adjusted to dark grey for standalone visibility */
+                        class="gozal-tea-straight-text"
+                    >
+                        <textPath href="#gozalTeaStraightPath" startOffset="50%" text-anchor="middle">
+                            Gozal Tea
+                        </textPath>
+                    </text>
+
+                    <text
+                        x="200"
+                        y="215" /* Adjusted Y coordinate to add more space */
+                        font-family="Lato Light, sans-serif"
+                        font-size="20"
+                        text-anchor="middle"
+                        fill="#555555" /* Adjusted to mid-tone grey for standalone visibility */
+                        class="wellington-text"
+                    >
+                        Wellington Maketing FZE
+                    </text>
+
+                    <circle
+                        cx="200"
+                        cy="200" /* Centered within 400x400 viewBox */
+                        r="180" /* Radius to fit perfectly within the viewBox */
+                        fill="none"
+                        stroke="#D4AF37" /* Gold color for the circle */
+                        stroke-width="1.5"
+                        class="outer-circle"
+                        stroke-dasharray="1131" /* Circumference for drawing (2 * PI * 180) */
+                        stroke-dashoffset="1131" /* Starts hidden */
+                    />
+
+                    <circle
+                        cx="200"
+                        cy="200" /* Centered within 400x400 viewBox */
+                        r="180" /* Radius to fit perfectly within the viewBox */
+                        fill="none"
+                        stroke="#FDFBF6" /* Light cream for stardust */
+                        stroke-width="1"
+                        class="stardust-circle"
+                        stroke-dasharray="2 10" /* Adjusted for more subtle, ethereal dots */
+                        stroke-dashoffset="0" /* Will animate this */
+                    />
+
+                    <circle
+                        cx="200"
+                        cy="200" /* Centered within 400x400 viewBox */
+                        r="0" /* Starts invisible */
+                        fill="url(#goldenAura)"
+                        class="golden-aura"
+                    />
+
+                    <text
+                        font-family="Lato, sans-serif"
+                        font-size="24"
+                        font-weight="bold"
+                        text-anchor="middle"
+                        fill="#D4AF37"
+                        class="u-slogan-text"
+                    >
+                        <textPath href="#uShapeSloganPath" startOffset="50%">
+                            Start Fresh Stay Inspired
+                        </textPath>
+                    </text>
+
+                    <text
+                        x="200"
+                        y="325" /* Adjusted Y coordinate to fit below slogan */
+                        font-family="Inter, sans-serif"
+                        font-size="12"
+                        text-anchor="middle"
+                        fill="#D4AF37"
+                        class="est-1970-text"
+                    >
+                        EST 1970
+                    </text>
+                </svg>
+                <span class="text-3xl md:text-4xl font-bold gozal-tea-luxury-header">Gozal Tea</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-primary-green-700 font-medium transition-colors duration-200">Home</a>
+                <a href="about.html" class="text-gray-700 hover:text-primary-green-700 font-medium transition-colors duration-200">About Us</a>
+                <a href="products.html" class="text-gray-700 hover:text-primary-green-700 font-medium transition-colors duration-200">Products</a>
+                <a href="facilities.html" class="text-primary-green-700 font-medium transition-colors duration-200">Facilities</a>
+                <a href="#contact-us" class="ml-6 px-6 py-3 bg-primary-green-700 text-white font-semibold rounded-lg shadow-md hover:bg-primary-primary-green-900 transition-colors duration-300 transform hover:scale-105" style="background-color: var(--color-primary-green-700);">
+                    REACH US
+                </a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary-green-700 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-white bg-opacity-95 z-50 flex flex-col items-center justify-center space-y-8">
+            <button id="close-mobile-menu" class="absolute top-6 right-6 text-gray-700 hover:text-primary-green-700 focus:outline-none">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <a href="index.html" class="text-4xl text-gray-800 hover:text-primary-green-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+            <a href="about.html" class="text-4xl text-gray-800 hover:text-primary-green-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About Us</a>
+            <a href="products.html" class="text-4xl text-gray-800 hover:text-primary-green-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Products</a>
+            <a href="facilities.html" class="text-4xl text-gray-800 hover:text-primary-green-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Facilities</a>
+            <a href="#contact-us" class="text-4xl text-gray-800 hover:text-primary-green-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">REACH US</a>
+        </div>
+    </header>
+
+    <main class="pt-24"> <section id="facilities-hero" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100 py-20 overflow-hidden">
+            <div class="absolute inset-0 parallax-bg opacity-40 z-0" style="background-image: url('https://images.unsplash.com/photo-1579547621008-8e6f15747e9b?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"></div>
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6" style="color: var(--color-primary-green-900);" data-aos="fade-up">
+                    Our State-of-the-Art Facilities
+                </h1>
+                <p class="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    Where tradition meets technology to craft the finest teas.
+                </p>
+            </div>
+        </section>
+
+        <section id="facility-overview" class="py-24 md:py-32 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-16" data-aos="fade-up" style="color: var(--color-primary-green-900);">Precision and Passion in Every Step</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+                    <div class="bg-white p-6 facility-card shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://placehold.co/300x200/E8F5E9/1a362a?text=Blending+Lab" alt="Tea Blending Lab" class="mx-auto mb-4 w-full h-48 object-cover">
+                        <h3 class="text-2xl font-bold mb-2" style="color: var(--color-primary-green-700);">Advanced Blending Lab</h3>
+                        <p class="text-gray-700 text-sm mb-4">Our dedicated blending lab ensures perfect consistency and unique flavor profiles for every tea blend.</p>
+                        <button class="read-more-btn inline-block bg-primary-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-primary-green-900 transition-colors duration-300 transform hover:scale-105"
+                                data-title="Advanced Blending Lab"
+                                data-description="Equipped with cutting-edge technology and overseen by expert tea masters, our blending lab is where the magic happens. We meticulously combine different tea leaves and ingredients to achieve the signature Gozal Tea taste and aroma. Strict quality control measures are in place at every stage.">
+                            Learn More
+                        </button>
+                    </div>
+
+                    <div class="bg-white p-6 facility-card shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://placehold.co/300x200/E0F2F1/2d572c?text=Packaging+Line" alt="Automated Packaging Line" class="mx-auto mb-4 w-full h-48 object-cover">
+                        <h3 class="text-2xl font-bold mb-2" style="color: var(--color-primary-green-700);">High-Speed Packaging</h3>
+                        <p class="text-gray-700 text-sm mb-4">Modern automated lines ensure efficient and hygienic packaging, preserving freshness and quality.</p>
+                        <button class="read-more-btn inline-block bg-primary-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-primary-green-900 transition-colors duration-300 transform hover:scale-105"
+                                data-title="High-Speed Packaging"
+                                data-description="Our state-of-the-art packaging facility utilizes high-speed, automated lines to seal in the freshness of our teas. From tea bags to loose leaf pouches, every product is packed with precision and care, adhering to the highest hygiene standards.">
+                            Learn More
+                        </button>
+                    </div>
+
+                    <div class="bg-white p-6 facility-card shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://placehold.co/300x200/C8E6C9/5d8a63?text=Warehouse" alt="Warehouse and Logistics" class="mx-auto mb-4 w-full h-48 object-cover">
+                        <h3 class="text-2xl font-bold mb-2" style="color: var(--color-primary-green-700);">Optimized Storage & Logistics</h3>
+                        <p class="text-gray-700 text-sm mb-4">Our climate-controlled warehouses and efficient logistics network ensure timely delivery worldwide.</p>
+                        <button class="read-more-btn inline-block bg-primary-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-primary-green-900 transition-colors duration-300 transform hover:scale-105"
+                                data-title="Optimized Storage & Logistics"
+                                data-description="Strategically located in the UAE, our facilities include expansive, climate-controlled warehouses that guarantee optimal storage conditions for our teas. Our robust logistics system ensures that Gozal Tea reaches our partners and customers efficiently, maintaining its premium quality from our factory to your cup.">
+                            Learn More
+                        </button>
+                    </div>
+
+                    <div class="bg-white p-6 facility-card shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                        <img src="https://placehold.co/300x200/FCE4EC/FF5722?text=R%26D+Lab" alt="Research and Development Lab" class="mx-auto mb-4 w-full h-48 object-cover">
+                        <h3 class="text-2xl font-bold mb-2" style="color: var(--color-primary-green-700);">Innovation & R&D</h3>
+                        <p class="text-gray-700 text-sm mb-4">Continuously exploring new blends and sustainable practices to bring you the best tea experiences.</p>
+                        <button class="read-more-btn inline-block bg-primary-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-primary-green-900 transition-colors duration-300 transform hover:scale-105"
+                                data-title="Innovation & R&D"
+                                data-description="Our commitment to excellence extends to our Research and Development department. Here, we innovate new tea blends, experiment with unique flavor combinations, and explore sustainable sourcing and production methods to ensure Gozal Tea remains at the forefront of the industry.">
+                            Learn More
+                        </button>
+                    </div>
+
+                    <div class="bg-white p-6 facility-card shadow-lg" data-aos="fade-up" data-aos-delay="500">
+                        <img src="https://placehold.co/300x200/F3E5F5/673AB7?text=Training+Center" alt="Training and Development Center" class="mx-auto mb-4 w-full h-48 object-cover">
+                        <h3 class="text-2xl font-bold mb-2" style="color: var(--color-primary-green-700);">Employee Training</h3>
+                        <p class="text-gray-700 text-sm mb-4">Investing in our team's expertise through continuous training in tea processing and quality standards.</p>
+                        <button class="read-more-btn inline-block bg-primary-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-primary-green-900 transition-colors duration-300 transform hover:scale-105"
+                                data-title="Employee Training & Development"
+                                data-description="At Gozal Tea, we believe our people are our greatest asset. Our dedicated training programs ensure that every member of our team, from tea tasters to production specialists, is equipped with the latest knowledge and skills in tea processing, quality assurance, and customer service, fostering a culture of continuous improvement.">
+                            Learn More
+                        </button>
+                    </div>
+
+                    <div class="bg-white p-6 facility-card shadow-lg" data-aos="fade-up" data-aos-delay="600">
+                        <img src="https://placehold.co/300x200/E3F2FD/2196F3?text=Eco+Initiatives" alt="Eco-Friendly Initiatives" class="mx-auto mb-4 w-full h-48 object-cover">
+                        <h3 class="text-2xl font-bold mb-2" style="color: var(--color-primary-green-700);">Eco-Friendly Practices</h3>
+                        <p class="text-gray-700 text-sm mb-4">Committed to sustainable operations, minimizing our environmental footprint in every process.</p>
+                        <button class="read-more-btn inline-block bg-primary-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-primary-green-900 transition-colors duration-300 transform hover:scale-105"
+                                data-title="Eco-Friendly Practices"
+                                data-description="Gozal Tea is dedicated to protecting our planet. Our facilities implement various eco-friendly initiatives, including waste reduction programs, energy-efficient machinery, and responsible water management. We are constantly seeking new ways to minimize our environmental impact and contribute to a healthier planet.">
+                            Learn More
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-primary-green-900 text-off-white py-12" style="background-color: var(--color-primary-green-900); color: var(--color-off-white);">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+                <h3 class="text-2xl font-bold mb-4" style="color: var(--color-accent-gold);">Gozal Tea</h3>
+                <p class="text-sm">Crafting Luxury & Fresh Starts Since 1970.</p>
+                <p class="text-sm mt-2">Wellington Marketing FZE</p>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-4" style="color: var(--color-accent-gold);">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="hover:text-primary-green-500 transition-colors duration-200">Home</a></li>
+                    <li><a href="about.html" class="hover:text-primary-green-500 transition-colors duration-200">About Us</a></li>
+                    <li><a href="products.html" class="hover:text-primary-green-500 transition-colors duration-200">Products</a></li>
+                    <li><a href="facilities.html" class="hover:text-primary-green-500 transition-colors duration-200">Facilities</a></li>
+                    <li><a href="#contact-us" class="hover:text-primary-green-500 transition-colors duration-200">REACH US</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-4" style="color: var(--color-accent-gold);">Contact Us</h3>
+                <p class="text-sm">Email: info@gozaltea.com</p>
+                <p class="text-sm">Phone: +971 4 123 4567</p>
+                <p class="text-sm mt-4">Follow Us:</p>
+                <div class="flex justify-center md:justify-start space-x-4 mt-2">
+                    <a href="https://facebook.com" class="hover:text-primary-green-500 transition-colors duration-200" target="_blank" rel="noopener noreferrer">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.247 0-1.637.77-1.637 1.562V12h2.773l-.443 2.89h-2.33V22C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z" />
+                        </svg>
+                    </a>
+                    <a href="https://x.com" class="hover:text-primary-green-500 transition-colors duration-200" target="_blank" rel="noopener noreferrer">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.007-.532A8.318 8.318 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012 10.72c-.007.045-.007.09-.007.135a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.139a11.623 11.623 0 006.29 1.882" />
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com" class="hover:text-primary-green-500 transition-colors duration-200" target="_blank" rel="noopener noreferrer">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 2C6.475 2 2 6.475 2 12a10 10 0 0010 10c5.525 0 10-4.475 10-10A10 10 0 0012 2zm5.403 7.872a.75.75 0 00-.75-.75h-2.527c-.247-.442-.51-.876-.786-1.298a.75.75 0 00-1.314.75c.276.422.539.856.786 1.298H7.347a.75.75 0 00-.75.75v4.25a.75.75 0 00.75.75h9.306a.75.75 0 00.75-.75V8.122zM9.5 12.5a.75.75 0 000 1.5h5a.75.75 0 000-1.5h-5z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 text-center mt-8 pt-8 border-t border-gray-700">
+            <p class="text-sm">&copy; <span id="current-year-footer"></span> Wellington Marketing FZE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="custom-message-box" class="message-box hidden">
+        <p id="message-content"></p>
+        <button id="message-box-ok">OK</button>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            mirror: false,
+            duration: 1000,
+            easing: 'ease-out-cubic',
+        });
+
+        // Get current year for footer
+        document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Custom message box function (replaces alert)
+        function showMessageBox(message) {
+            const messageBox = document.getElementById('custom-message-box');
+            const messageContent = document.getElementById('message-content');
+            const messageBoxOk = document.getElementById('message-box-ok');
+
+            messageContent.innerHTML = message; // Use innerHTML to allow H3 and P tags
+            messageBox.classList.remove('hidden');
+
+            messageBoxOk.onclick = () => {
+                messageBox.classList.add('hidden');
+            };
+        }
+
+        // Header scroll-up/scroll-down functionality
+        let lastScrollY = window.scrollY;
+        const mainHeader = document.getElementById('main-header');
+        const headerHeight = mainHeader.offsetHeight;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY && window.scrollY > headerHeight) {
+                mainHeader.classList.remove('header-visible');
+                mainHeader.classList.add('header-hidden');
+            } else if (window.scrollY < lastScrollY) {
+                mainHeader.classList.remove('header-hidden');
+                mainHeader.classList.add('header-visible');
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        // Read More button functionality for facilities
+        document.querySelectorAll('.read-more-btn').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const title = event.target.dataset.title;
+                const description = event.target.dataset.description;
+                showMessageBox(`<h3>${title}</h3><p class="mt-4">${description}</p>`);
+            });
+        });
+    </script>
+</body>
+</html>
+
+                      
