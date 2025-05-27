@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ancient Art of Green Tea Brewing | Gozal Tea Blog</title>
+    <meta name="description" content="Discover the traditional methods and modern tips for brewing the perfect cup of green tea to unlock its full flavor and health benefits.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Custom CSS - Copy the :root, body, h1-h6, html, parallax-bg, and your SVG animation styles from blog.html */
+        :root {
+            --color-primary-green-900: #1a362a; /* Deep Forest Green */
+            --color-primary-green-700: #2d572c; /* Gozal Green */
+            --color-primary-green-500: #5d8a63; /* Muted Green */
+            --color-accent-gold: #b8860b; /* Muted Gold for luxury */
+            --color-off-white: #f8f8f8; /* Soft off-white for background */
+            --color-charcoal: #333333; /* Deep charcoal for text */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--color-charcoal);
+            background-color: var(--color-off-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-primary-green-900);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .gozal-tea-luxury-header {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-primary-green-900);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            position: relative;
+            top: -4px;
+        }
+        .luxurious-text {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-primary-green-900);
+            font-weight: bold;
+        }
+        /* Loading spinner styles */
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: var(--color-primary-green-700);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Header scroll-up/scroll-down styles */
+        .header-hidden {
+            top: -100px; /* Adjust based on actual header height */
+        }
+        .header-visible {
+            top: 0;
+        }
+        header {
+            transition: top 0.3s ease-in-out;
+        }
+
+        /* Responsive adjustments for the SVG container (from your provided code) */
+        .svg-container {
+            width: 100%;
+            max-width: 400px; /* Limit max width for larger screens */
+            height: auto;
+            margin: auto; /* Center the container */
+        }
+
+        /* Adjustments for individual blog post content */
+        .blog-content p, .blog-content li {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        .blog-content h2, .blog-content h3 {
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+            margin-bottom: 2rem;
+        }
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            header .flex.items-center > svg {
+                width: 60px;
+                height: 60px;
+            }
+            .svg-container {
+                max-width: 300px;
+            }
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.5rem; }
+            h3 { font-size: 1.75rem; }
+            .text-lg { font-size: 1rem; }
+            .text-xl { font-size: 1.125rem; }
+            section { padding-top: 4rem; padding-bottom: 4rem; }
+            .blog-content p, .blog-content li { font-size: 1rem; }
+        }
+        @media (max-width: 480px) {
+            header .flex.items-center > svg {
+                width: 50px;
+                height: 50px;
+            }
+            .svg-container {
+                max-width: 250px;
+            }
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+            .text-lg { font-size: 0.9rem; }
+            .text-xl { font-size: 1rem; }
+            section { padding-top: 3rem; padding-bottom: 3rem; }
+            .blog-content p, .blog-content li { font-size: 0.95rem; }
+        }
+
+        /* SVG animation styles (copy from your blog.html header) */
+        /* --- SVG Logo Animation Styles (UPDATED) --- */
+        :root {
+            --total-loop-duration: 15s;
+        }
+        @keyframes sealAnimation {
+            0% { opacity: 0; transform: scale(0.5) rotate(0deg); filter: drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
+            4.67% { opacity: 1; transform: scale(1.05) rotate(5deg); filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.7)); }
+            6.67% { opacity: 1; transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.4)); }
+            93.33% { opacity: 1; transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.4)); }
+            100% { opacity: 0; transform: scale(0.95) rotate(0deg); }
+        }
+        @keyframes gozalTeaStraightAnimation {
+            0%, 6.67% { opacity: 0; transform: translateX(-100px); text-shadow: none; }
+            13.33% { opacity: 1; transform: translateX(5px); text-shadow: 0 0 10px rgba(0,0,0,0.4); }
+            15% { opacity: 1; transform: translateX(0); text-shadow: 0 0 5px rgba(0,0,0,0.2); }
+            93.33% { opacity: 1; transform: translateX(0); text-shadow: 0 0 5px rgba(0,0,0,0.2); }
+            100% { opacity: 0; transform: translateX(0); text-shadow: none; }
+        }
+        @keyframes wellingtonTextAnimation {
+            0%, 14.67% { opacity: 0; transform: translateY(40px); }
+            21.33% { opacity: 1; transform: translateY(0); }
+            34.67% { opacity: 1; transform: translateY(0); }
+            39.33% { opacity: 0; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(0); }
+        }
+        @keyframes goldenAuraAnimation {
+            0%, 20% { r: 0; opacity: 0; }
+            33.33% { r: 150px; opacity: 1; }
+            40% { r: 200px; opacity: 0; }
+            100% { r: 0; opacity: 0; }
+        }
+        @keyframes outerCircleAnimation {
+            0% { stroke-dashoffset: 1131; opacity: 0; }
+            23.33% { stroke-dashoffset: 1131; opacity: 0; }
+            30% { stroke-dashoffset: 0; opacity: 1; }
+            93.33% { opacity: 1; }
+            100% { stroke-dashoffset: 0; opacity: 0; }
+        }
+        @keyframes stardustCircleAnimation {
+            0% { opacity: 0; }
+            25.33% { opacity: 0; }
+            25.34% { opacity: 1; }
+            93.33% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        @keyframes stardustFlow {
+            0% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: 1131; }
+        }
+        @keyframes uSloganAnimation {
+            0%, 40% { opacity: 0; transform: scale(0.8); }
+            46.67% { opacity: 1; transform: scale(1); }
+            86.67% { opacity: 1; transform: scale(1); }
+            93.33% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 0; }
+        }
+        @keyframes est1970Animation {
+            0%, 46% { opacity: 0; transform: translateY(10px); }
+            50% { opacity: 1; transform: translateY(0); }
+            85% { opacity: 1; transform: translateY(0); }
+            90% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 0; }
+        }
+        .gozal-seal { animation: sealAnimation var(--total-loop-duration) ease-in-out infinite; will-change: transform, opacity, filter; }
+        .gozal-tea-straight-text { animation: gozalTeaStraightAnimation var(--total-loop-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite; will-change: transform, opacity, text-shadow; }
+        .wellington-text { animation: wellingtonTextAnimation var(--total-loop-duration) ease-out infinite; will-change: transform, opacity; }
+        .outer-circle { animation: outerCircleAnimation var(--total-loop-duration) ease-in-out infinite; will-change: stroke-dashoffset, opacity, filter; filter: drop-shadow(0px 0px 3px rgba(212, 175, 55, 0.6)); }
+        .stardust-circle { animation: stardustCircleAnimation var(--total-loop-duration) linear infinite, stardustFlow 3s linear infinite; will-change: stroke-dashoffset, opacity; }
+        .golden-aura { animation: goldenAuraAnimation var(--total-loop-duration) ease-out infinite; will-change: r, opacity; }
+        .u-slogan-text { animation: uSloganAnimation var(--total-loop-duration) ease-out infinite; transform-origin: 50% 50%; will-change: transform, opacity; }
+        .est-1970-text { animation: est1970Animation var(--total-loop-duration) ease-out infinite; will-change: transform, opacity; }
+
+    </style>
+</head>
+<body>
+
+    <header id="main-header" class="bg-white shadow-sm py-4 fixed w-full z-50 top-0 header-visible">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <svg
+                    viewBox="0 0 400 400"
+                    class="w-20 h-20 md:w-32 md:h-32"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style="vertical-align: text-bottom;"
+                >
+                    <defs>
+                        <radialGradient id="goldenAura" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                            <stop offset="0%" stop-color="rgba(212, 175, 55, 0.8)" />
+                            <stop offset="70%" stop-color="rgba(212, 175, 55, 0.3)" />
+                            <stop offset="100%" stop-color="rgba(212, 175, 55, 0)" />
+                        </radialGradient>
+                        <path id="gozalTeaStraightPath" d="M 70 180 L 330 180" fill="none" />
+                        <path id="uShapeSloganPath" d="M 70 245 Q 200 275 330 245" fill="none" />
+                        <linearGradient id="mountainGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#1A4314" />
+                            <stop offset="100%" stop-color="#0F2D0F" />
+                        </linearGradient>
+                    </defs>
+
+                    <g class="gozal-seal">
+                        <g class="animated-logo">
+                            <path d="M 150 70 L 200 40 L 250 70 Z" fill="url(#mountainGradient)" stroke="#D4AF37" stroke-width="1" stroke-linejoin="round" />
+                            <path d="M 185 55 L 200 40 L 215 55 Z" fill="#FDFBF6" stroke="#D4AF37" stroke-width="0.5" stroke-linejoin="round" />
+                            <path d="M 120 80 L 160 50 L 190 80 Z" fill="url(#mountainGradient)" stroke="#D4AF37" stroke-width="1" stroke-linejoin="round" />
+                            <path d="M 148 62 L 160 50 L 172 62 Z" fill="#FDFBF6" stroke="#D4AF37" stroke-width="0.5" stroke-linejoin="round" />
+                            <path d="M 210 80 L 240 50 L 270 80 Z" fill="url(#mountainGradient)" stroke="#D4AF37" stroke-width="1" stroke-linejoin="round" />
+                            <path d="M 233 60 L 240 50 L 247 60 Z" fill="#FDFBF6" stroke="#D4AF37" stroke-width="0.5" stroke-linejoin="round" />
+                            <line x1="80" y1="110" x2="320" y2="110" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" />
+                        </g>
+                    </g>
+
+                    <text
+                        font-family="Playfair Display, serif"
+                        font-size="45"
+                        font-weight="bold"
+                        fill="#2C2C2C"
+                        class="gozal-tea-straight-text"
+                    >
+                        <textPath href="#gozalTeaStraightPath" startOffset="50%" text-anchor="middle">
+                            Gozal Tea
+                        </textPath>
+                    </text>
+
+                    <text
+                        x="200"
+                        y="215"
+                        font-family="Lato Light, sans-serif"
+                        font-size="20"
+                        text-anchor="middle"
+                        fill="#555555"
+                        class="wellington-text"
+                    >
+                        Wellington Maketing FZE
+                    </text>
+
+                    <circle
+                        cx="200"
+                        cy="200"
+                        r="180"
+                        fill="none"
+                        stroke="#D4AF37"
+                        stroke-width="1.5"
+                        class="outer-circle"
+                        stroke-dasharray="1131"
+                        stroke-dashoffset="1131"
+                    />
+
+                    <circle
+                        cx="200"
+                        cy="200"
+                        r="180"
+                        fill="none"
+                        stroke="#FDFBF6"
+                        stroke-width="1"
+                        class="stardust-circle"
+                        stroke-dasharray="2 10"
+                        stroke-dashoffset="0"
+                    />
+
+                    <circle
+                        cx="200"
+                        cy="200"
+                        r="0"
+                        fill="url(#goldenAura)"
+                        class="golden-aura"
+                    />
+
+                    <text
+                        font-family="Lato, sans-serif"
+                        font-size="24"
+                        font-weight="bold"
+                        text-anchor="middle"
+                        fill="#D4AF37"
+                        class="u-slogan-text"
+                    >
+                        <textPath href="#uShapeSloganPath" startOffset="50%">
+                            Start Fresh Stay Inspired
+                        </textPath>
+                    </text>
+
+                    <text
+                        x="200"
+                        y="325"
+                        font-family="Inter, sans-serif"
+                        font-size="12"
+                        text-anchor="middle"
+                        fill="#D4AF37"
+                        class="est-1970-text"
+                    >
+                        EST 1970
+                    </text>
+                </svg>
+                <span class="text-3xl md:text-4xl font-bold gozal-tea-luxury-header">Gozal Tea</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-primary-green-700 font-medium transition-colors duration-200">Home</a>
+                <a href="about.html" class="text-gray-700 hover:text-primary-green-700 font-medium transition-colors duration-200">About Us</a>
+                <a href="products.html" class="text-gray-700 hover:text-primary-green-700 font-medium transition-colors duration-200">Products</a>
+                <a href="facilities.html" class="text-gray-700 hover:text-primary-green-700 font-medium transition-colors duration-200">Facilities</a>
+                <a href="blog.html" class="text-primary-green-700 font-medium transition-colors duration-200">Blog</a>
+                <a href="reachus.html" class="ml-6 px-6 py-3 bg-primary-green-700 text-white font-semibold rounded-lg shadow-md hover:bg-primary-primary-green-900 transition-colors duration-300 transform hover:scale-105" style="background-color: var(--color-primary-green-700);">
+                    REACH US
+                </a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary-green-700 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-white bg-opacity-95 z-50 flex flex-col items-center justify-center space-y-8">
+            <button id="close-mobile-menu" class="absolute top-6 right-6 text-gray-700 hover:text-primary-green-700 focus:outline-none">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <a href="index.html" class="text-4xl text-gray-800 hover:text-primary-green-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+            <a href="about.html" class="text-4xl text-gray-800 hover:text-primary-green-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About Us</a>
+            <a href="products.html" class="text-4xl text-gray-800 hover:text-primary-green-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Products</a>
+            <a href="facilities.html" class="text-4xl text-gray-800 hover:text-primary-green-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Facilities</a>
+            <a href="blog.html" class="text-4xl text-gray-800 hover:text-primary-green-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Blog</a>
+            <a href="reachus.html" class="text-4xl text-gray-800 hover:text-primary-green-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">REACH US</a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <section id="blog-post-content" class="py-16 md:py-24 bg-off-white">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <a href="blog.html" class="inline-flex items-center text-primary-green-700 hover:text-primary-green-900 font-medium mb-8 transition-colors duration-200">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Back to All Blogs
+                </a>
+
+                <h1 class="text-4xl md:text-5xl font-bold mb-6" style="color: var(--color-primary-green-900);">The Ancient Art of Green Tea Brewing</h1>
+                <p class="text-gray-600 text-lg mb-8">Published on May 27, 2025 by Gozal Tea</p>
+
+                <img src="https://placehold.co/800x450/E8F5E9/1a362a?text=Green+Tea+Brewing" alt="Close-up of green tea being brewed" class="w-full h-auto object-cover rounded-xl shadow-lg mb-10">
+
+                <div class="blog-content text-gray-800">
+                    <p>Green tea has been cherished for centuries, not just for its refreshing taste but also for its numerous health benefits. Originating in China, green tea cultivation and consumption spread across Asia and has now captivated enthusiasts worldwide. The art of brewing green tea is a delicate balance, and mastering it unlocks a world of subtle flavors and aromas.</p>
+
+                    <h2 class="text-3xl font-bold" style="color: var(--color-primary-green-700);">Understanding Water Temperature</h2>
+                    <p>One of the most crucial elements in brewing green tea is water temperature. Unlike black teas, green teas are more delicate and can become bitter if steeped in water that is too hot. The ideal temperature for most green teas is between 70°C to 85°C (160°F to 185°F). For more delicate varieties like Gyokuro, even lower temperatures around 60°C (140°F) are recommended. Using a kettle with temperature control is ideal, but if you don't have one, simply boil the water and let it cool for a few minutes before pouring.</p>
+
+                    <h2 class="text-3xl font-bold" style="color: var(--color-primary-green-700);">Steeping Time and Leaf Quantity</h2>
+                    <p>The steeping time is another key factor. Generally, green tea should be steeped for 1 to 3 minutes. Shorter times will yield a lighter, more refreshing brew, while longer times will result in a stronger, potentially more astringent flavor. It’s always best to start with a shorter steep and adjust to your preference. As for leaf quantity, a good rule of thumb is about one teaspoon of tea leaves per 8 ounces (240ml) of water, but this can also be adjusted based on the tea type and your desired strength.</p>
+
+                    <h2 class="text-3xl font-bold" style="color: var(--color-primary-green-700);">Exploring Green Tea Varieties</h2>
+                    <p>The world of green tea is vast and diverse. Here are a few popular types:</p>
+                    <ul class="list-disc list-inside ml-4">
+                        <li class="mb-2"><strong>Sencha:</strong> The most common green tea in Japan, known for its fresh, grassy, and sometimes slightly oceanic flavor.</li>
+                        <li class="mb-2"><strong>Matcha:</strong> A finely ground powdered green tea used in traditional Japanese tea ceremonies. It has a rich, umami flavor and vibrant green color.</li>
+                        <li class="mb-2"><strong>Gyokuro:</strong> A shaded green tea from Japan, prized for its sweet, mellow flavor and deep green color.</li>
+                        <li class="mb-2"><strong>Dragonwell (Longjing):</strong> A famous Chinese green tea with a distinctive flat leaf, known for its nutty, slightly sweet, and savory taste.</li>
+                        <li class="mb-2"><strong>Gunpowder:</strong> A Chinese green tea with leaves rolled into small pellets, offering a bold, slightly smoky flavor.</li>
+                    </ul>
+                    <p>Experimenting with different types of green tea and adjusting your brewing technique will allow you to fully appreciate the nuanced characteristics of this remarkable beverage. Enjoy your journey into the ancient art of green tea brewing!</p>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <a href="blog.html" class="inline-block bg-primary-green-700 text-white font-semibold px-8 py-4 rounded-lg shadow-md hover:bg-primary-green-900 transition-colors duration-300 transform hover:scale-105" style="text-decoration: none;">
+                        &larr; Back to All Blogs
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-primary-green-900 text-off-white py-12">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <h3 class="luxurious-text text-3xl font-bold mb-4">Gozal Tea</h3>
+                <p class="text-sm">Bringing the world's finest teas from our gardens to your cup, fostering moments of tranquility and wellness.</p>
+                <div class="flex space-x-4 mt-6">
+                    <a href="#" class="text-off-white hover:text-accent-gold transition-colors duration-200">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.779 1.624 4.931 4.85.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.07 4.85-1.07 3.252-1.624 4.779-4.85 4.931-1.265.058-1.645.069-4.849.069-3.205 0-3.584-.012-4.85-.07-3.252-.148-4.779-1.624-4.931-4.85-.058-1.265-.069-1.645-.069-4.849 0-3.205.012-3.584.07-4.85 1.07-3.252 1.624-4.779 4.85-4.931 1.265-.058 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.073 4.948.073 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.18-12.261c-.504 0-.913.409-.913.913s.409.913.913.913.913-.409.913-.913-.409-.913-.913-.913z"/></svg>
+                    </a>
+                    <a href="#" class="text-off-white hover:text-accent-gold transition-colors duration-200">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.28 6.326c-.84.373-1.745.623-2.695.73.964-.578 1.705-1.495 2.05-2.58-.9.535-1.9.923-2.956 1.13-.85-.904-2.062-1.47-3.413-1.47-2.58 0-4.676 2.096-4.676 4.676 0 .367.042.72.123 1.054-3.886-.195-7.327-2.058-9.63-4.887-.403.69-.636 1.493-.636 2.366 0 1.62.823 3.045 2.078 3.88-2.61.127-1.206-.345-2.484-.684v.058c0 2.26 1.61 4.147 3.743 4.58-.392.106-.803.163-1.229.163-.301 0-.594-.03-.878-.084.594 1.854 2.31 3.204 4.348 3.242-1.6.938-3.612 1.499-5.807 1.499-.377 0-.749-.022-1.112-.065 2.068 1.325 4.517 2.103 7.158 2.103 8.595 0 13.29-7.11 13.29-13.29 0-.203-.005-.406-.014-.607.915-.662 1.703-1.48 2.332-2.417z"/></svg>
+                    </a>
+                    <a href="#" class="text-off-white hover:text-accent-gold transition-colors duration-200">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0H5c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zm-8 19H8v-9h3v9zm-3-11.5a2.5 2.5 0 0 1-5 0 2.5 2.5 0 0 1 5 0zM19 19h-3v-4.5c0-1.24-.97-2.25-2.25-2.25S11.5 13.26 11.5 14.5V19H8.5V9h3v1.75c.78-1.2 2.04-1.75 3.25-1.75 2.49 0 4.25 1.76 4.25 4.25V19z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="luxurious-text text-xl font-bold mb-4">Quick Links</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="index.html" class="hover:text-accent-gold transition-colors duration-200">Home</a></li>
+                    <li><a href="about.html" class="hover:text-accent-gold transition-colors duration-200">About Us</a></li>
+                    <li><a href="products.html" class="hover:text-accent-gold transition-colors duration-200">Our Products</a></li>
+                    <li><a href="facilities.html" class="hover:text-accent-gold transition-colors duration-200">Facilities</a></li>
+                    <li><a href="blog.html" class="hover:text-accent-gold transition-colors duration-200">Blog</a></li>
+                    <li><a href="reachus.html" class="hover:text-accent-gold transition-colors duration-200">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="luxurious-text text-xl font-bold mb-4">Contact</h3>
+                <p class="text-sm">
+                    Wellington Marketing FZE<br>
+                    Sharjah Airport Free Zone (SAIF Zone)<br>
+                    Sharjah, United Arab Emirates
+                </p>
+                <p class="text-sm mt-4">
+                    Email: <a href="mailto:info@gozaltea.com" class="hover:text-accent-gold transition-colors duration-200">info@gozaltea.com</a>
+                </p>
+                <p class="text-sm">
+                    Phone: <a href="tel:+971501234567" class="hover:text-accent-gold transition-colors duration-200">+971 50 123 4567</a>
+                </p>
+            </div>
+
+            <div>
+                <h3 class="luxurious-text text-xl font-bold mb-4">Newsletter</h3>
+                <p class="text-sm mb-4">Stay updated with our latest news and tea insights.</p>
+                <form onsubmit="alert('Thank you for subscribing!'); event.preventDefault();">
+                    <input type="email" placeholder="Your email address" class="w-full p-3 rounded-lg text-gray-900 bg-white bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-accent-gold mb-3" required>
+                    <button type="submit" class="w-full bg-accent-gold text-primary-green-900 font-semibold py-3 rounded-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="border-t border-primary-green-700 mt-10 pt-8 text-center text-xs">
+            <p>&copy; 2025 Gozal Tea. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            mirror: false,
+        });
+
+        // Header scroll-hide functionality
+        let lastScrollTop = 0;
+        const mainHeader = document.getElementById('main-header');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop && scrollTop > mainHeader.offsetHeight) {
+                // Scrolling down past header height
+                mainHeader.classList.remove('header-visible');
+                mainHeader.classList.add('header-hidden');
+            } else {
+                // Scrolling up or at the very top
+                mainHeader.classList.remove('header-hidden');
+                mainHeader.classList.add('header-visible');
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+        // You might want to add a listener to hide the mobile menu if the screen resizes to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) { // Tailwind's 'md' breakpoint
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
