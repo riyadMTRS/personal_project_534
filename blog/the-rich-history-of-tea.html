@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rich History of Tea | Gozal Tea Blog</title>
+    <meta name="description" content="Explore the fascinating origins and journey of tea from ancient China to modern-day global phenomenon.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Custom CSS to define a luxurious palette and apply fonts */
+        :root {
+            --color-primary-green-900: #1a362a; /* Deep Forest Green */
+            --color-primary-green-700: #2d572c; /* Gozal Green */
+            --color-primary-green-500: #5d8a63; /* Muted Green */
+            --color-accent-gold: #b8860b; /* Muted Gold for luxury */
+            --color-off-white: #f8f8f8; /* Soft off-white for background */
+            --color-charcoal: #333333; /* Deep charcoal for text */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--color-charcoal);
+            background-color: var(--color-off-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-primary-green-900);
+        }
+        /* Custom scroll-behavior for smooth scrolling on anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* --- SVG Logo Animation Styles --- */
+        /* Define the total loop duration for the logo animation */
+        :root {
+            --total-loop-duration: 15s; /* Total animation loop duration */
+        }
+
+        /* Keyframes for the Gozal Seal's blooming emergence and full lifecycle */
+        @keyframes sealAnimation {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) rotate(0deg);
+                filter: drop-shadow(0 0 0px rgba(212, 175, 55, 0));
+            }
+            4.67% { /* 0.7s */
+                opacity: 1;
+                transform: scale(1.05) rotate(5deg);
+                filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.7));
+            }
+            6.67% { /* 1.0s */
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+                filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.4));
+            }
+            93.33% { /* 14.0s */
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+                filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.4));
+            }
+            100% { /* 15.0s */
+                opacity: 0;
+                transform: scale(0.95) rotate(0deg); /* Slight scale down on exit */
+            }
+        }
+
+        /* Keyframes for elegant straight text slide-in and full lifecycle */
+        @keyframes gozalTeaStraightAnimation {
+            0%, 6.67% { /* 1.0s */
+                opacity: 0;
+                transform: translateX(-100px); /* Start off-screen left */
+                text-shadow: none;
+            }
+            13.33% { /* 2.0s */
+                opacity: 1;
+                transform: translateX(5px); /* Overshoot slightly */
+                text-shadow: 0 0 10px rgba(0,0,0,0.4);
+            }
+            15% { /* 2.25s */
+                opacity: 1;
+                transform: translateX(0); /* Settle */
+                text-shadow: 0 0 5px rgba(0,0,0,0.2);
+            }
+            93.33% { /* 14.0s */
+                opacity: 1;
+                transform: translateX(0);
+                text-shadow: 0 0 5px rgba(0,0,0,0.2);
+            }
+            100% { /* 15.0s */
+                opacity: 0;
+                transform: translateX(0);
+                text-shadow: none;
+            }
+        }
+
+        /* Keyframes for subtle tagline slide-in from bottom and full lifecycle */
+        @keyframes wellingtonTextAnimation {
+            0%, 14.67% { /* 2.2s */
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            21.33% { /* 3.2s */
+                opacity: 1;
+                transform: translateY(0);
+            }
+            34.67% { /* 5.2s */
+                opacity: 1;
+                transform: translateY(0);
+            }
+            39.33% { /* 5.9s */
+                opacity: 0;
+                transform: translateY(0);
+            }
+            100% { /* 15.0s */
+                opacity: 0;
+                transform: translateY(0);
+            }
+        }
+
+        /* Keyframes for golden aura expansion and full lifecycle */
+        @keyframes goldenAuraAnimation {
+            0%, 20% { /* 3.0s */
+                r: 0;
+                opacity: 0;
+            }
+            33.33% { /* 5.0s */
+                r: 150px;
+                opacity: 1;
+            }
+            40% { /* 6.0s */
+                r: 200px;
+                opacity: 0;
+            }
+            100% { /* 15.0s */
+                r: 0;
+                opacity: 0;
+            }
+        }
+
+        /* Keyframes for outer circle drawing and full lifecycle */
+        @keyframes outerCircleAnimation {
+            0% {
+                stroke-dashoffset: 1131; /* Starts hidden (circumference of 180 radius) */
+                opacity: 0;
+            }
+            23.33% { /* 3.5s */
+                stroke-dashoffset: 1131;
+                opacity: 0;
+            }
+            30% { /* 4.5s */
+                stroke-dashoffset: 0; /* Drawn */
+                opacity: 1;
+            }
+            93.33% { /* 14.0s */
+                opacity: 1;
+            }
+            100% { /* 15.0s */
+                stroke-dashoffset: 0;
+                opacity: 0; /* Fade out */
+            }
+        }
+
+        /* Keyframes for stardust movement and full lifecycle */
+        @keyframes stardustCircleAnimation {
+            0% {
+                opacity: 0;
+            }
+            25.33% { /* 3.8s */
+                opacity: 0;
+            }
+            25.34% { /* Just after hidden, appear instantly */
+                opacity: 1;
+            }
+            93.33% { /* 14.0s */
+                opacity: 1; /* Hold */
+            }
+            100% { /* 15.0s */
+                opacity: 0; /* Fade out */
+            }
+        }
+
+        /* Keyframes for continuous stardust flow (applied separately) */
+        @keyframes stardustFlow {
+            0% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: 1131; } /* Move full circumference */
+        }
+
+        /* NEW: Keyframes for U-shaped slogan animation */
+        @keyframes uSloganAnimation {
+            0%, 40% { /* 6.0s - before fade in */
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            46.67% { /* 7.0s - fully faded in and scaled */
+                opacity: 1;
+                transform: scale(1);
+            }
+            86.67% { /* 13.0s - hold */
+                opacity: 1;
+                transform: scale(1);
+            }
+            93.33% { /* 14.0s - fade out */
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* Keyframes for EST 1970 text animation */
+        @keyframes est1970Animation {
+            0%, 46% { /* Start hidden, slightly after slogan begins to appear */
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            50% { /* Fully visible */
+                opacity: 1;
+                transform: translateY(0);
+            }
+            85% { /* Hold visible */
+                opacity: 1;
+                transform: translateY(0);
+            }
+            90% { /* Start fading out */
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% { /* Fully hidden */
+                opacity: 0;
+            }
+        }
+
+        /* Apply animations to elements */
+        .gozal-seal {
+            animation: sealAnimation var(--total-loop-duration) ease-in-out infinite;
+            will-change: transform, opacity, filter;
+        }
+
+        .gozal-tea-straight-text {
+            animation: gozalTeaStraightAnimation var(--total-loop-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+            will-change: transform, opacity, text-shadow;
+        }
+
+        .wellington-text {
+            animation: wellingtonTextAnimation var(--total-loop-duration) ease-out infinite;
+            will-change: transform, opacity;
+        }
+
+        .outer-circle {
+            animation: outerCircleAnimation var(--total-loop-duration) ease-in-out infinite;
+            will-change: stroke-dashoffset, opacity, filter;
+            filter: drop-shadow(0px 0px 3px rgba(212, 175, 55, 0.6));
+        }
+
+        .stardust-circle {
+            animation: stardustCircleAnimation var(--total-loop-duration) linear infinite,
+                        stardustFlow 3s linear infinite;
+            will-change: stroke-dashoffset, opacity;
+        }
+
+        .golden-aura {
+            animation: goldenAuraAnimation var(--total-loop-duration) ease-out infinite;
+            will-change: r, opacity;
+        }
+
+        /* NEW SLOGAN ANIMATIONS */
+        .u-slogan-text {
+            animation: uSloganAnimation var(--total-loop-duration) ease-out infinite;
+            transform-origin: 50% 50%;
+            will-change: transform, opacity;
+        }
+
+        .est-1970-text {
+            animation: est1970Animation var(--total-loop-duration) ease-out infinite;
+            will-change: transform, opacity;
+        }
+
+        /* Custom style for the luxurious Gozal Tea header text */
+        .gozal-tea-luxury-header {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-primary-green-900);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            position: relative;
+            top: -4px;
+        }
+
+        /* Custom style for luxurious text within content */
+        .luxurious-text {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-primary-green-900);
+            font-weight: bold;
+        }
+
+        /* Responsive adjustments for the SVG container */
+        .svg-container {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin: auto;
+        }
+
+        /* Header scroll-up/scroll-down styles */
+        .header-hidden {
+            top: -100px;
+        }
+        .header-visible {
+            top: 0;
+        }
+        header {
+            transition: top 0.3s ease-in-out;
+        }
+
+        /* Specific styles for blog post content */
+        .blog-content h1, .blog-content h2, .blog-content h3 {
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+            line-height: 1.2;
+        }
+        .blog-content p {
+            margin-bottom: 1em;
+            line-height: 1.7;
+            font-size: 1.125rem; /* text-lg */
+        }
+        .blog-content ul, .blog-content ol {
+            margin-bottom: 1em;
+            padding-left: 1.5em;
+        }
+        .blog-content ul li {
+            list-style-type: disc;
+            margin-bottom: 0.5em;
+        }
+        .blog-content ol li {
+            list-style-type: decimal;
+            margin-bottom: 0.5em;
+        }
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.75rem; /* rounded-xl */
+            margin-top: 1.5em;
+            margin-bottom: 1.5em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .blog-content blockquote {
+            border-left: 4px solid var(--color-primary-green-700);
+            padding-left: 1.25em;
+            margin: 1.5em 0;
+            font-style: italic;
+            color: var(--color-charcoal);
+        }
+        .blog-meta {
+            font-size: 0.95rem; /* text-sm slightly larger */
+            color: #6b7280; /* gray-500 */
+        }
+        .blog-meta a {
+            color: var(--color-primary-green-700);
+            text-decoration: none;
+        }
+        .blog-meta a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* Responsive adjustments for the SVG container (from your provided code) */
+        .svg-container {
+            width: 100%;
+            max-width: 400px; /* Limit max width for larger screens */
+            height: auto;
+            margin: auto; /* Center the container */
+        }
+
+        /* Loading spinner styles */
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: var(--color-primary-green-700);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Header scroll-up/scroll-down styles */
+        .header-hidden {
+            top: -100px;
+        }
+        .header-visible {
+            top: 0;
+        }
+        header {
+            transition: top 0.3s ease-in-out;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header .flex.items-center > svg {
+                width: 60px;
+                height: 60px;
+            }
+            .svg-container { max-width: 300px; }
+            .gozal-tea-straight-text { font-size: 24px; }
+            .wellington-text { font-size: 12px; y: 210px; }
+            .u-slogan-text { font-size: 15px; }
+            .est-1970-text { font-size: 6px; y: 315px; }
+            #uShapeSloganPath { d: "M 70 240 Q 200 270 330 240"; }
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.5rem; }
+            h3 { font-size: 1.75rem; }
+            .text-lg { font-size: 1rem; }
+            .text-xl { font-size: 1.125rem; }
+            section { padding-top: 4rem; padding-bottom: 4rem; }
+            .blog-content p { font-size: 1rem; } /* text-base on small screens */
+        }
+
+        @media (max-width: 480px) {
+            header .flex.items-center > svg {
+                width: 50px;
+                height: 50px;
+            }
+            .svg-container { max-width: 250px; }
+            .gozal-tea-straight-text { font-size: 20px; }
+            .wellington-text { font-size: 10px; y: 205px; }
+            .u-slogan-text { font-size: 13px; }
+            .est-1970-text { font-size: 5px; y: 310px; }
+            #uShapeSloganPath { d: "M 70 235 Q 200 265 330 235"; }
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+            .text-lg { font-size: 0.9rem; }
+            .text-xl { font-size: 1rem; }
+            section { padding-top: 3rem; padding-bottom: 3rem; }
+            .blog-content p { font-size: 0.95rem; } /* text-sm on very small screens */
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header" class="bg-white shadow-sm py-4 fixed w-full z-50 top-0 header-visible">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <svg
+                    viewBox="0 0 400 400"
+                    class="w-20 h-20 md:w-32 md:h-32"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style="vertical-align: text-bottom;"
+                >
+                    <defs>
+                        <radialGradient id="goldenAura" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                            <stop offset="0%" stop-color="rgba(212, 175, 55, 0.8)" />
+                            <stop offset="70%" stop-color="rgba(212, 175, 55, 0.3)" />
+                            <stop offset="100%" stop-color="rgba(212, 175, 55, 0)" />
+                        </radialGradient>
+                        <path id="gozalTeaStraightPath" d="M 70 180 L 330 180" fill="none" />
+                        <path id="uShapeSloganPath" d="M 70 245 Q 200 275 330 245" fill="none" />
+                        <linearGradient id="mountainGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#1A4314" />
+                            <stop offset="100%" stop-color="#0F2D0F" />
+                        </linearGradient>
+                    </defs>
+
+                    <g class="gozal-seal">
+                        <g class="animated-logo">
+                            <path d="M 150 70 L 200 40 L 250 70 Z" fill="url(#mountainGradient)" stroke="#D4AF37" stroke-width="1" stroke-linejoin="round" />
+                            <path d="M 185 55 L 200 40 L 215 55 Z" fill="#FDFBF6" stroke="#D4AF37" stroke-width="0.5" stroke-linejoin="round" />
+
+                            <path d="M 120 80 L 160 50 L 190 80 Z" fill="url(#mountainGradient)" stroke="#D4AF37" stroke-width="1" stroke-linejoin="round" />
+                            <path d="M 148 62 L 160 50 L 172 62 Z" fill="#FDFBF6" stroke="#D4AF37" stroke-width="0.5" stroke-linejoin="round" />
+
+                            <path d="M 210 80 L 240 50 L 270 80 Z" fill="url(#mountainGradient)" stroke="#D4AF37" stroke-width="1" stroke-linejoin="round" />
+                            <path d="M 233 60 L 240 50 L 247 60 Z" fill="#FDFBF6" stroke="#D4AF37" stroke-width="0.5" stroke-linejoin="round" />
+
+                            <line x1="80" y1="110" x2="320" y2="110" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" />
+                        </g>
+                    </g>
+
+                    <text
+                        font-family="Playfair Display, serif"
+                        font-size="45"
+                        font-weight="bold"
+                        fill="#2C2C2C"
+                        class="gozal-tea-straight-text"
+                    >
+                        <textPath href="#gozalTeaStraightPath" startOffset="50%" text-anchor="middle">
+                            Gozal Tea
+                        </textPath>
+                    </text>
+
+                    <text
+                        x="200"
+                        y="215"
+                        font-family="Lato Light, sans-serif"
+                        font-size="20"
+                        text-anchor="middle"
+                        fill="#555555"
+                        class="wellington-text"
+                    >
+                        Wellington Maketing FZE
+                    </text>
+
+                    <circle
+                        cx="200"
+                        cy="200"
+                        r="180"
+                        fill="none"
+                        stroke="#D4AF37"
+                        stroke-width="1.5"
+                        class="outer-circle"
+                        stroke-dasharray="1131"
+                        stroke-dashoffset="1131"
+                    />
+
+                    <circle
+                        cx="200"
+                        cy="200"
+                        r="180"
+                        fill="none"
+                        stroke="#FDFBF6"
+                        stroke-width="1"
+                        class="stardust-circle"
+                        stroke-dasharray="2 10"
+                        stroke-dashoffset="0"
+                    />
+
+                    <circle
+                        cx="200"
+                        cy="200"
+                        r="0"
+                        fill="url(#goldenAura)"
+                        class="golden-aura"
+                    />
+
+                    <text
+                        font-family="Lato, sans-serif"
+                        font-size="24"
+                        font-weight="bold"
+                        text-anchor="middle"
+                        fill="#D4AF37"
+                        class="u-slogan-text"
+                    >
+                        <textPath href="#uShapeSloganPath" startOffset="50%">
+                            Start Fresh Stay Inspired
+                        </textPath>
+                    </text>
+
+                    <text
+                        x="200"
+                        y="325"
+                        font-family="Inter, sans-serif"
+                        font-size="12"
+                        text-anchor="middle"
+                        fill="#D4AF37"
+                        class="est-1970-text"
+                    >
+                        EST 1970
+                    </text>
+                </svg>
+                <span class="text-3xl md:text-4xl font-bold gozal-tea-luxury-header">Gozal Tea</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-primary-green-700 font-medium transition-colors duration-200">Home</a>
+                <a href="about.html" class="text-gray-700 hover:text-primary-green-700 font-medium transition-colors duration-200">About Us</a>
+                <a href="products.html" class="text-gray-700 hover:text-primary-green-700 font-medium transition-colors duration-200">Products</a>
+                <a href="facilities.html" class="text-gray-700 hover:text-primary-green-700 font-medium transition-colors duration-200">Facilities</a>
+                <a href="blog.html" class="text-gray-700 hover:text-primary-green-700 font-medium transition-colors duration-200">Blog</a>
+                <a href="reachus.html" class="ml-6 px-6 py-3 bg-primary-green-700 text-white font-semibold rounded-lg shadow-md hover:bg-primary-primary-green-900 transition-colors duration-300 transform hover:scale-105" style="background-color: var(--color-primary-green-700);">
+                    REACH US
+                </a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary-green-700 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-white bg-opacity-95 z-50 flex flex-col items-center justify-center space-y-8">
+            <button id="close-mobile-menu" class="absolute top-6 right-6 text-gray-700 hover:text-primary-green-700 focus:outline-none">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <a href="index.html" class="text-4xl text-gray-800 hover:text-primary-green-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+            <a href="about.html" class="text-4xl text-gray-800 hover:text-primary-green-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About Us</a>
+            <a href="products.html" class="text-4xl text-gray-800 hover:text-primary-green-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Products</a>
+            <a href="facilities.html" class="text-4xl text-gray-800 hover:text-primary-green-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Facilities</a>
+            <a href="blog.html" class="text-4xl text-gray-800 hover:text-primary-green-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Blog</a>
+            <a href="reachus.html" class="text-4xl text-gray-800 hover:text-primary-green-700 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">REACH US</a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <section id="blog-post-hero" class="relative min-h-[40vh] flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100 py-16 overflow-hidden">
+            <div class="absolute inset-0 parallax-bg opacity-40 z-0" style="background-image: url('images/history-tea-hero.jpg');"></div>
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4" style="color: var(--color-primary-green-900);" data-aos="fade-up">
+                    The Rich History of Tea
+                </h1>
+                <p class="blog-meta text-base md:text-lg" data-aos="fade-up" data-aos-delay="200">
+                    By <span class="font-semibold" style="color: var(--color-primary-green-700);">Gozal Tea Team</span> on <span class="font-semibold">May 27, 2025</span>
+                </p>
+                <a href="blog.html" class="inline-block mt-8 text-primary-green-700 hover:underline font-semibold transition-colors duration-200" data-aos="fade-up" data-aos-delay="300">
+                    ← Back to All Blogs
+                </a>
+            </div>
+        </section>
+
+        <section id="blog-content-section" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 max-w-4xl blog-content text-gray-800">
+                <img src="images/ancient-tea-scroll.jpg" alt="Ancient Chinese tea scroll" class="w-full object-cover mb-8 shadow-md" data-aos="fade-up">
+
+                <h2 class="text-3xl md:text-4xl font-bold" data-aos="fade-up">
+                    From Ancient Legends to Global Staple
+                </h2>
+                <p data-aos="fade-up" data-aos-delay="100">
+                    The story of tea is as rich and complex as its flavor, spanning thousands of years and countless cultures. Legend has it that tea was discovered by Chinese Emperor Shen Nung in 2737 BC when tea leaves accidentally blew into his boiling water. While the exact origins are shrouded in myth, archaeological evidence suggests tea cultivation began in China over 6,000 years ago.
+                </p>
+                <p data-aos="fade-up" data-aos-delay="200">
+                    Initially used for medicinal purposes, tea gradually evolved into a beloved beverage, deeply intertwined with philosophical and artistic practices, particularly during the Tang and Song dynasties. It was during these periods that tea ceremonies and sophisticated brewing techniques began to emerge, elevating tea from a simple drink to an art form.
+                </p>
+
+                <h3 class="text-2xl md:text-3xl font-bold" data-aos="fade-up">
+                    Tea's Journey West: The Silk Road and Beyond
+                </h3>
+                <p data-aos="fade-up" data-aos-delay="100">
+                    Tea's journey beyond China was a slow but steady one. It first reached Japan in the 9th century, brought by Buddhist monks who integrated it into their spiritual practices, leading to the development of the elaborate Japanese tea ceremony.
+                </p>
+                <p data-aos="fade-up" data-aos-delay="200">
+                    The 17th century marked a pivotal moment when European traders, primarily the Dutch and Portuguese, introduced tea to the Western world. It quickly became a luxury item, a symbol of status and sophistication among the elite. The British, in particular, developed a profound affinity for tea, establishing vast plantations in India and Ceylon (modern-day Sri Lanka) to meet the burgeoning demand.
+                </p>
+                <ul data-aos="fade-up" data-aos-delay="300">
+                    <li>**Chinese Origins:** The birthplace of tea, steeped in ancient legends.</li>
+                    <li>**Japanese Zen:** Tea integrated into spiritual and cultural practices.</li>
+                    <li>**European Introduction:** A luxury item that transformed social customs.</li>
+                    <li>**Colonial Expansion:** The rise of tea plantations in India and Ceylon.</li>
+                </ul>
+
+                <img src="images/old-tea-trade-route.jpg" alt="Historic map showing tea trade routes" data-aos="fade-up" data-aos-delay="400">
+                <p class="text-sm text-gray-500 text-center italic mt-2">The intricate pathways of tea trade across continents.</p>
+
+                <h3 class="text-2xl md:text-3xl font-bold" data-aos="fade-up">
+                    Modern Day: A Global Phenomenon
+                </h3>
+                <p data-aos="fade-up" data-aos-delay="100">
+                    Today, tea is the second most consumed beverage in the world, after water. It has transcended its origins to become a global phenomenon, with countless varieties, brewing methods, and cultural significance in every corner of the globe. From the bustling tea houses of Marrakech to the serene tea rooms of Kyoto, and the everyday tea breaks in offices worldwide, tea continues to bring people together.
+                </p>
+                <ol data-aos="fade-up" data-aos-delay="200">
+                    <li>**Global Consumption:** The world's second most popular beverage.</li>
+                    <li>**Diverse Varieties:** From black to green, oolong to herbal, a tea for every palate.</li>
+                    <li>**Cultural Integration:** A daily ritual and a symbol of hospitality.</li>
+                </ol>
+
+                <blockquote data-aos="fade-up" data-aos-delay="300">
+                    "There is no trouble so great or grave that it cannot be much diminished by a nice cup of tea." - Bernard-Paul Heroux
+                </blockquote>
+
+                <p data-aos="fade-up" data-aos-delay="400">
+                    At Gozal Tea, we honor this rich heritage by sourcing the finest leaves and crafting blends that celebrate tea's enduring legacy. Every cup of Gozal Tea is a connection to this incredible history, inviting you to be part of a tradition that has nourished and inspired humanity for millennia.
+                </p>
+
+                <p data-aos="fade-up" data-aos-delay="500">
+                    Thank you for reading! Discover more about our passion for tea and explore other articles on our <a href="blog.html" class="text-primary-green-700 hover:underline font-semibold">Gozal Tea Blog</a>.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-primary-green-900 text-off-white py-12" style="background-color: var(--color-primary-green-900); color: var(--color-off-white);">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+                <h3 class="text-2xl font-bold mb-4" style="color: var(--color-accent-gold);">Gozal Tea</h3>
+                <p class="text-sm">Crafting Luxury & Fresh Starts Since 1970.</p>
+                <p class="text-sm mt-2">Wellington Marketing FZE</p>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-4" style="color: var(--color-accent-gold);">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="hover:text-primary-green-500 transition-colors duration-200">Home</a></li>
+                    <li><a href="about.html" class="hover:text-primary-green-500 transition-colors duration-200">About Us</a></li>
+                    <li><a href="products.html" class="hover:text-primary-green-500 transition-colors duration-200">Products</a></li>
+                    <li><a href="facilities.html" class="hover:text-primary-green-500 transition-colors duration-200">Facilities</a></li>
+                    <li><a href="blog.html" class="hover:text-primary-green-500 transition-colors duration-200">Blog</a></li>
+                    <li><a href="reachus.html" class="hover:text-primary-green-500 transition-colors duration-200">REACH US</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-4" style="color: var(--color-accent-gold);">Contact Us</h3>
+                <p class="text-sm">Email: info@gozaltea.com</p>
+                <p class="text-sm">Phone: +971 4 123 4567</p>
+                <p class="text-sm mt-4">Follow Us:</p>
+                <div class="flex justify-center md:justify-start space-x-4 mt-2">
+                    <a href="#" class="hover:text-primary-green-500 transition-colors duration-200">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.247 0-1.637.77-1.637 1.562V12h2.773l-.443 2.89h-2.33V22C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="hover:text-primary-green-500 transition-colors duration-200">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.007-.532A8.318 8.318 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012 10.72c-.007.045-.007.09-.007.135a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.139a11.623 11.623 0 006.29 1.882" />
+                        </svg>
+                    </a>
+                    <a href="#" class="hover:text-primary-green-500 transition-colors duration-200">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 2C6.475 2 2 6.475 2 12a10 10 0 0010 10c5.525 0 10-4.475 10-10A10 10 0 0012 2zm5.403 7.872a.75.75 0 00-.75-.75h-2.527c-.247-.442-.51-.876-.786-1.298a.75.75 0 00-1.314.75c.276.422.539.856.786 1.298H7.347a.75.75 0 00-.75.75v4.25a.75.75 0 00.75.75h9.306a.75.75 0 00.75-.75V8.122zM9.5 12.5a.75.75 0 000 1.5h5a.75.75 0 000-1.5h-5z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 text-center mt-8 pt-8 border-t border-gray-700">
+            <p class="text-sm">© <span id="current-year-footer"></span> Wellington Marketing FZE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            mirror: false,
+            duration: 1000,
+            easing: 'ease-out-cubic',
+        });
+
+        // Get current year for footer
+        document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Header scroll-up/scroll-down functionality
+        let lastScrollY = window.scrollY;
+        const mainHeader = document.getElementById('main-header');
+        const headerHeight = mainHeader.offsetHeight;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY && window.scrollY > headerHeight) {
+                mainHeader.classList.remove('header-visible');
+                mainHeader.classList.add('header-hidden');
+            } else if (window.scrollY < lastScrollY) {
+                mainHeader.classList.remove('header-hidden');
+                mainHeader.classList.add('header-visible');
+            }
+            lastScrollY = window.scrollY;
+        });
+    </script>
+</body>
+</html>
