@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Health Benefits of Different Tea Types: A Comprehensive Guide | Gozal Tea Blog</title>
+    <meta name="description" content="Explore the diverse health benefits of various tea types, from antioxidant-rich green tea to calming herbal infusions. Discover how Gozal Tea can be part of your healthy lifestyle.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary-green-900: #1a362a; 
+            --color-primary-green-700: #2d572c; 
+            --color-primary-green-500: #5d8a63; 
+            --color-accent-gold: #b8860b; 
+            --color-off-white: #f8f8f8; 
+            --color-charcoal: #333333; 
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--color-charcoal);
+            background-color: var(--color-off-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-primary-green-900);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .gozal-tea-luxury-header {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-primary-green-900);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            position: relative;
+            top: -4px;
+        }
+        .luxurious-text {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-primary-green-900);
+            font-weight: bold;
+        }
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: var(--color-primary-green-700);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .header-hidden {
+            top: -100px; 
+        }
+        .header-visible {
+            top: 0;
+        }
+        header {
+            transition: top 0.3s ease-in-out;
+        }
+        .svg-container {
+            width: 100%;
+            max-width: 400px; 
+            height: auto;
+            margin: auto; 
+        }
+        .blog-content p, .blog-content li {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        .blog-content h2, .blog-content h3 {
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 768px) {
+            header .flex.items-center > svg {
+                width: 60px;
+                height: 60px;
+            }
+            .svg-container {
+                max-width: 300px;
+            }
+            h1 { font-size: 2.5rem; } /* Adjusted from 3.5rem for blog post title */
+            h2 { font-size: 2rem; } /* Adjusted from 2.5rem */
+            h3 { font-size: 1.5rem; } /* Adjusted from 1.75rem */
+            .text-lg { font-size: 1rem; }
+            .text-xl { font-size: 1.125rem; }
+            section { padding-top: 4rem; padding-bottom: 4rem; }
+            .blog-content p, .blog-content li { font-size: 1rem; }
+        }
+        @media (max-width: 480px) {
+            header .flex.items-center > svg {
+                width: 50px;
+                height: 50px;
+            }
+            .svg-container {
+                max-width: 250px;
+            }
+            h1 { font-size: 2rem; } /* Adjusted from 3rem */
+            h2 { font-size: 1.75rem; } /* Adjusted from 2rem */
+            h3 { font-size: 1.25rem; } /* Adjusted from 1.5rem */
+            .text-lg { font-size: 0.9rem; }
+            .text-xl { font-size: 1rem; }
+            section { padding-top: 3rem; padding-bottom: 3rem; }
+            .blog-content p, .blog-content li { font-size: 0.95rem; }
+        }
+        :root {
+            --total-loop-duration: 15s;
+        }
+        @keyframes sealAnimation {
+            0% { opacity: 0; transform: scale(0.5) rotate(0deg); filter: drop-shadow(0 0 0px rgba(212, 175, 55, 0)); }
+            4.67% { opacity: 1; transform: scale(1.05) rotate(5deg); filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.7)); }
+            6.67% { opacity: 1; transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.4)); }
+            93.33% { opacity: 1; transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.4)); }
+            100% { opacity: 0; transform: scale(0.95) rotate(0deg); }
+        }
+        @keyframes gozalTeaStraightAnimation {
+            0%, 6.67% { opacity: 0; transform: translateX(-100px); text-shadow: none; }
+            13.33% { opacity: 1; transform: translateX(5px); text-shadow: 0 0 10px rgba(0,0,0,0.4); }
+            15% { opacity: 1; transform: translateX(0); text-shadow: 0 0 5px rgba(0,0,0,0.2); }
+            93.33% { opacity: 1; transform: translateX(0); text-shadow: 0 0 5px rgba(0,0,0,0.2); }
+            100% { opacity: 0; transform: translateX(0); text-shadow: none; }
+        }
+        @keyframes wellingtonTextAnimation {
+            0%, 14.67% { opacity: 0; transform: translateY(40px); }
+            21.33% { opacity: 1; transform: translateY(0); }
+            34.67% { opacity: 1; transform: translateY(0); }
+            39.33% { opacity: 0; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(0); }
+        }
+        @keyframes goldenAuraAnimation {
+            0%, 20% { r: 0; opacity: 0; }
+            33.33% { r: 150px; opacity: 1; }
+            40% { r: 200px; opacity: 0; }
+            100% { r: 0; opacity: 0; }
+        }
+        @keyframes outerCircleAnimation {
+            0% { stroke-dashoffset: 1131; opacity: 0; }
+            23.33% { stroke-dashoffset: 1131; opacity: 0; }
+            30% { stroke-dashoffset: 0; opacity: 1; }
+            93.33% { opacity: 1; }
+            100% { stroke-dashoffset: 0; opacity: 0; }
+        }
+        @keyframes stardustCircleAnimation {
+            0% { opacity: 0; }
+            25.33% { opacity: 0; }
+            25.34% { opacity: 1; }
+            93.33% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        @keyframes stardustFlow {
+            0% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: 1131; }
+        }
+        @keyframes uSloganAnimation {
+            0%, 40% { opacity: 0; transform: scale(0.8); }
+            46.67% { opacity: 1; transform: scale(1); }
+            86.67% { opacity: 1; transform: scale(1); }
+            93.33% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 0; }
+        }
+        @keyframes est1970Animation {
+            0%, 40% { opacity: 0; transform: scale(0.8); }
+            46.67% { opacity: 1; transform: scale(1); }
+            86.67% { opacity: 1; transform: scale(1); }
+            93.33% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 0; }
+        }
+        #gozalSeal_logo_svg__gozalSeal {
+            animation: sealAnimation var(--total-loop-duration) infinite linear;
+        }
+        #gozalSeal_logo_svg__gozalTeaStraight {
+            animation: gozalTeaStraightAnimation var(--total-loop-duration) infinite linear;
+        }
+        #gozalSeal_logo_svg__wellingtonText {
+            animation: wellingtonTextAnimation var(--total-loop-duration) infinite linear;
+        }
+        #gozalSeal_logo_svg__goldenAura {
+            animation: goldenAuraAnimation var(--total-loop-duration) infinite linear;
+        }
+        #gozalSeal_logo_svg__outerCircle {
+            stroke-dasharray: 1131; 
+            animation: outerCircleAnimation var(--total-loop-duration) infinite linear;
+        }
+        #gozalSeal_logo_svg__stardustCircle {
+            stroke-dasharray: 50 20; 
+            animation: stardustCircleAnimation var(--total-loop-duration) infinite linear, stardustFlow calc(var(--total-loop-duration) * 2) infinite linear;
+        }
+        #gozalSeal_logo_svg__uSlogan tspan {
+            animation: uSloganAnimation var(--total-loop-duration) infinite linear;
+        }
+        #gozalSeal_logo_svg__est1970 tspan {
+            animation: est1970Animation var(--total-loop-duration) infinite linear;
+        }
+    </style>
+</head>
+<body class="bg-color-off-white text-color-charcoal">
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner fixed"></div>
+
+    <!-- Header -->
+    <header id="main-header" class="bg-white shadow-md sticky top-0 z-50 header-visible">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="../../index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <!-- Updated SVG Logo -->
+                <svg class="svg-container" id="gozalSeal_logo_svg" width="100" height="100" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="goldRadialGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                            <stop offset="0%" style="stop-color:#FFDF00;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#B8860B;stop-opacity:1" />
+                        </radialGradient>
+                        <filter id="subtleShadow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+                            <feOffset in="blur" dx="1" dy="1" result="offsetBlur"/>
+                            <feMerge>
+                                <feMergeNode in="offsetBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <circle id="gozalSeal_logo_svg__goldenAura" cx="200" cy="200" r="0" fill="url(#goldRadialGradient)" opacity="0.5"/>
+                    <g id="gozalSeal_logo_svg__gozalSeal" filter="url(#subtleShadow)">
+                        <path d="M200,60 C277.32,60 340,122.68 340,200 C340,277.32 277.32,340 200,340 C122.68,340 60,277.32 60,200 C60,122.68 122.68,60 200,60 Z" fill="var(--color-primary-green-700)"/>
+                        <path d="M200,70 C271.79,70 330,128.21 330,200 C330,271.79 271.79,330 200,330 C128.21,330 70,271.79 70,200 C70,128.21 128.21,70 200,70 Z" fill="var(--color-off-white)"/>
+                        <path d="M200,80 C266.27,80 320,133.73 320,200 C320,266.27 266.27,320 200,320 C133.73,320 80,266.27 80,200 C80,133.73 133.73,80 200,80 Z" fill="var(--color-primary-green-500)"/>
+                        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Playfair Display', serif" font-size="100" fill="var(--color-primary-green-900)" font-weight="bold">G</text>
+                    </g>
+                    <circle id="gozalSeal_logo_svg__outerCircle" cx="200" cy="200" r="180" stroke="var(--color-accent-gold)" stroke-width="4" fill="none"/>
+                    <circle id="gozalSeal_logo_svg__stardustCircle" cx="200" cy="200" r="180" stroke="var(--color-accent-gold)" stroke-width="4" fill="none" opacity="0.5"/>
+                    <text id="gozalSeal_logo_svg__gozalTeaStraight" x="50%" y="35%" dominant-baseline="middle" text-anchor="middle" font-family="'Playfair Display', serif" font-size="40" fill="var(--color-primary-green-900)" font-weight="700">Gozal Tea</text>
+                    <text id="gozalSeal_logo_svg__wellingtonText" x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" font-family="'Lato', sans-serif" font-size="20" fill="var(--color-charcoal)">Wellington</text>
+                    <text id="gozalSeal_logo_svg__uSlogan" font-family="'Playfair Display', serif" font-size="22" fill="var(--color-primary-green-700)" text-anchor="middle">
+                        <textPath xlink:href="#gozalSeal_logo_svg__outerCircle" startOffset="50%">
+                            <tspan dy="-8">Unveiling Tradition in Every Sip</tspan>
+                        </textPath>
+                    </text>
+                    <text id="gozalSeal_logo_svg__est1970" font-family="'Lato', sans-serif" font-size="18" fill="var(--color-charcoal)" text-anchor="middle">
+                        <textPath xlink:href="#gozalSeal_logo_svg__outerCircle" startOffset="0%">
+                            <tspan dy="188">EST. 1970</tspan>
+                        </textPath>
+                    </text>
+                </svg>
+            </a>
+            <nav class="space-x-4">
+                <a href="../../index.html" class="text-color-charcoal hover:text-primary-green-500 transition-colors duration-200">Home</a>
+                <a href="../../about.html" class="text-color-charcoal hover:text-primary-green-500 transition-colors duration-200">About</a>
+                <a href="../../products.html" class="text-color-charcoal hover:text-primary-green-500 transition-colors duration-200">Products</a>
+                <a href="../../blog.html" class="text-color-charcoal hover:text-primary-green-500 transition-colors duration-200">Blog</a>
+                <a href="../../facilities.html" class="text-color-charcoal hover:text-primary-green-500 transition-colors duration-200">Facilities</a>
+                <a href="../../reachus.html" class="text-color-charcoal hover:text-primary-green-500 transition-colors duration-200">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12 blog-content">
+        <div class="mb-8">
+            <a href="../../blog.html" class="text-primary-green-700 hover:text-primary-green-900 transition-colors duration-200 inline-flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Back to All Blogs
+            </a>
+        </div>
+        <article data-aos="fade-up">
+            <header class="mb-12 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 gozal-tea-luxury-header">Unveiling the Wellness Wonders: A Guide to the Health Benefits of Tea</h1>
+                <p class="text-lg text-gray-600">Posted on <time datetime="2024-07-28">July 28, 2024</time> by Gozal Tea Experts</p>
+                <img src="../../images/blog/various-tea-leaves.jpg" alt="Various types of tea leaves offering health benefits" class="w-full max-w-3xl mx-auto mt-8 rounded-lg shadow-lg">
+            </header>
+
+            <section class="mb-12">
+                <h2 class="text-3xl font-semibold mb-6 luxurious-text">Tea: More Than Just a Beverage</h2>
+                <p>For centuries, tea has been cherished not only for its delightful flavors and aromas but also for its profound health benefits. From ancient monks who used it for meditation to modern-day wellness enthusiasts, the allure of tea as a healthful elixir remains strong. While its rich history is a journey in itself (explore more in our <a href="./the-rich-history-of-tea.html" class="text-primary-green-700 hover:underline">Rich History of Tea</a> post), today we delve into the specific wellness advantages offered by different types of tea. Understanding these benefits can help you choose the perfect Gozal Tea brew to complement your healthy lifestyle.</p>
+            </section>
+
+            <section class="mb-12">
+                <h2 class="text-3xl font-semibold mb-6 luxurious-text">The Powerhouse: Green Tea Benefits</h2>
+                <img src="../../images/blog/green-tea-cup.jpg" alt="Cup of steaming green tea highlighting green tea benefits" class="w-full md:w-1/2 float-right ml-0 md:ml-6 mb-4 rounded-lg shadow-md">
+                <p>Green tea, minimally processed and packed with antioxidants, is often hailed as one of the healthiest beverages on the planet. Its impressive profile of health benefits includes:</p>
+                <ul>
+                    <li><strong>Rich in Antioxidants:</strong> Green tea is abundant in polyphenols, particularly catechins like EGCG (Epigallocatechin gallate), which combat oxidative stress and protect cells from damage. These antioxidants in tea are key to its health-promoting properties.</li>
+                    <li><strong>Boosts Brain Function:</strong> The combination of caffeine (in moderate amounts) and the amino acid L-theanine in green tea can improve brain function, including mood, alertness, and memory, without the jittery side effects often associated with coffee.</li>
+                    <li><strong>Supports Metabolism and Weight Management:</strong> Studies suggest that green tea benefits may extend to increasing metabolic rate and promoting fat oxidation, potentially aiding in weight management when combined with a healthy diet and exercise.</li>
+                    <li><strong>Promotes Heart Health:</strong> Regular consumption of green tea has been linked to improved cardiovascular health, including lower LDL cholesterol levels and reduced risk of heart disease.</li>
+                </ul>
+                <p>Discover the art of preparing this beneficial brew in our guide on <a href="./green-tea-brewing.html" class="text-primary-green-700 hover:underline">Green Tea Brewing</a>.</p>
+            </section>
+            <div style="clear:both;"></div>
+
+            <section class="mb-12">
+                <h2 class="text-3xl font-semibold mb-6 luxurious-text">The Classic Brew: Black Tea Advantages</h2>
+                <img src="../../images/blog/black-tea-pot.jpg" alt="Pot of black tea illustrating black tea benefits" class="w-full md:w-1/2 float-left mr-0 md:mr-6 mb-4 rounded-lg shadow-md">
+                <p>Black tea, known for its robust flavor and darker color due to full oxidation, offers its own unique set of health advantages:</p>
+                <ul>
+                    <li><strong>Provides a Gentle Energy Boost:</strong> Like green tea, black tea contains caffeine, offering a sustained energy lift and improved focus. It's an excellent choice for a morning or afternoon pick-me-up.</li>
+                    <li><strong>Rich in Flavonoids for Heart Health:</strong> Black tea is a good source of flavonoids, which are beneficial for heart health and may help reduce the risk of stroke and other cardiovascular issues.</li>
+                    <li><strong>May Improve Gut Health:</strong> The polyphenols in black tea can promote the growth of beneficial gut bacteria and inhibit harmful ones, contributing to a healthier digestive system.</li>
+                    <li><strong>Contains Theaflavins and Thearubigins:</strong> These complex polyphenols, formed during oxidation, contribute to black tea's antioxidant capacity and potential health benefits, including supporting immune function.</li>
+                </ul>
+            </section>
+            <div style="clear:both;"></div>
+
+            <section class="mb-12">
+                <h2 class="text-3xl font-semibold mb-6 luxurious-text">The Delicate Infusion: White Tea Perks</h2>
+                <p>White tea, made from the youngest leaves and buds of the tea plant, is the least processed of all true teas. This minimal processing helps retain a high concentration of antioxidants, leading to several white tea benefits:</p>
+                <ul>
+                    <li><strong>Highest Antioxidant Levels:</strong> Often considered to have the highest concentration of antioxidants among teas, white tea is particularly effective at fighting free radicals and reducing oxidative stress.</li>
+                    <li><strong>Gentle and Low in Caffeine:</strong> For those sensitive to caffeine, white tea offers a milder alternative while still providing significant health benefits.</li>
+                    <li><strong>May Promote Skin Health:</strong> The antioxidants in white tea can help protect the skin from damage caused by UV radiation and pollutants, potentially contributing to a more youthful complexion.</li>
+                </ul>
+            </section>
+
+            <section class="mb-12">
+                <h2 class="text-3xl font-semibold mb-6 luxurious-text">The Complex Character: Oolong Tea Virtues</h2>
+                <p>Oolong tea sits between green and black tea in terms of oxidation, offering a diverse range of flavors and a unique combination of oolong tea benefits:</p>
+                <ul>
+                    <li><strong>Aids in Weight Management:</strong> Some research suggests oolong tea can enhance metabolism and help the body burn fat more effectively, making it a popular choice for those looking to manage their weight.</li>
+                    <li><strong>Supports Healthy Digestion:</strong> Oolong tea is often consumed after meals to aid digestion and soothe the stomach.</li>
+                    <li><strong>May Help Regulate Blood Sugar:</strong> Preliminary studies indicate that oolong tea might play a role in managing blood sugar levels, which is beneficial for overall metabolic health.</li>
+                </ul>
+            </section>
+
+            <section class="mb-12">
+                <h2 class="text-3xl font-semibold mb-6 luxurious-text">Nature's Remedies: Herbal Teas & Tisanes</h2>
+                <img src="../../images/blog/herbal-tea-assortment.jpg" alt="Assortment of herbal teas showcasing herbal tea benefits" class="w-full md:w-1/2 float-right ml-0 md:ml-6 mb-4 rounded-lg shadow-md">
+                <p>While not derived from the Camellia sinensis plant (and thus not 'true' teas), herbal teas or tisanes are infusions of fruits, flowers, herbs, and spices. They offer a wide array of specific health benefits and are often caffeine-free:</p>
+                <ul>
+                    <li><strong>Chamomile Tea for Relaxation:</strong> Known for its calming properties, chamomile tea is a popular choice for promoting sleep and reducing anxiety. A perfect tea for relaxation.</li>
+                    <li><strong>Peppermint Tea for Digestion:</strong> Peppermint tea can help soothe an upset stomach, alleviate bloating, and aid overall digestion.</li>
+                    <li><strong>Ginger Tea for Nausea and Inflammation:</strong> Ginger tea is well-regarded for its ability to combat nausea and its anti-inflammatory properties.</li>
+                    <li><strong>Rooibos Tea (Red Bush Tea):</strong> Rich in antioxidants and caffeine-free, rooibos offers benefits like improved heart health and potential anti-diabetic effects.</li>
+                </ul>
+                <p>Exploring the world of herbal teas opens up a vast array of natural remedies tea options for various wellness needs.</p>
+            </section>
+            <div style="clear:both;"></div>
+
+            <section class="mb-12">
+                <h2 class="text-3xl font-semibold mb-6 luxurious-text">How to Maximize Tea's Health Benefits</h2>
+                <p>To fully reap the health benefits of tea, consider these tips:</p>
+                <ul>
+                    <li><strong>Choose High-Quality Teas:</strong> The quality of the tea leaves significantly impacts its flavor and beneficial compounds. Opt for loose-leaf Gozal Teas whenever possible.</li>
+                    <li><strong>Proper Brewing:</strong> Different teas require different water temperatures and steeping times. Over-steeping or using water that's too hot can result in a bitter taste and diminish some benefits.</li>
+                    <li><strong>Consistency is Key:</strong> Incorporating tea into your daily routine is more effective than occasional consumption for long-term health benefits.</li>
+                    <li><strong>Listen to Your Body:</strong> While tea offers many advantages, moderation is important, especially with caffeinated varieties.</li>
+                </ul>
+            </section>
+
+            <section class="mb-12 text-center">
+                <h2 class="text-3xl font-semibold mb-6 luxurious-text">Embrace a Healthier Lifestyle with Gozal Tea</h2>
+                <p>Tea is a delightful and versatile beverage that offers a multitude of health benefits. Whether you prefer the invigorating kick of black tea, the subtle notes of white tea, the antioxidant power of green tea, the complexity of oolong, or the soothing nature of herbal infusions, there's a Gozal Tea for every preference and wellness goal. Explore our collection and discover the best tea for health to enrich your daily life.</p>
+                <a href="../../products.html" class="mt-8 inline-block bg-primary-green-700 text-white font-semibold py-3 px-8 rounded-lg hover:bg-primary-green-900 transition-colors duration-300 text-lg">Explore Gozal Teas</a>
+            </section>
+
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-green-900 text-off-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h5 class="luxurious-text text-xl mb-4 text-white">Gozal Tea</h5>
+                    <p class="text-sm">Experience the tradition and quality of Wellington's finest teas, curated since 1970.</p>
+                </div>
+                <div>
+                    <h5 class="luxurious-text text-xl mb-4 text-white">Quick Links</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../../about.html" class="hover:text-primary-green-500 transition-colors duration-200">About Us</a></li>
+                        <li><a href="../../products.html" class="hover:text-primary-green-500 transition-colors duration-200">Our Teas</a></li>
+                        <li><a href="../../blog.html" class="hover:text-primary-green-500 transition-colors duration-200">Blog</a></li>
+                        <li><a href="../../reachus.html" class="hover:text-primary-green-500 transition-colors duration-200">Contact & Find Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="luxurious-text text-xl mb-4 text-white">Connect</h5>
+                    <p class="text-sm">123 Tea Lane, Wellington, NZ</p>
+                    <p class="text-sm">contact@gozaltea.co.nz</p>
+                    <p class="text-sm mt-4">Follow Us:</p>
+                    <div class="flex justify-center md:justify-center space-x-4 mt-2">
+                        <a href="https://facebook.com" class="hover:text-primary-green-500 transition-colors duration-200" target="_blank" rel="noopener noreferrer">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.247 0-1.637.77-1.637 1.562V12h2.773l-.443 2.89h-2.33V22C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z" /></svg>
+                        </a>
+                        <a href="https://x.com" class="hover:text-primary-green-500 transition-colors duration-200" target="_blank" rel="noopener noreferrer">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.007-.532A8.318 8.318 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012 10.72c-.007.045-.007.09-.007.135a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.139a11.623 11.623 0 006.29 1.882" /></svg>
+                        </a>
+                        <a href="https://instagram.com" class="hover:text-primary-green-500 transition-colors duration-200" target="_blank" rel="noopener noreferrer">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.475 2 2 6.475 2 12a10 10 0 0010 10c5.525 0 10-4.475 10-10A10 10 0 0012 2zm5.403 7.872a.75.75 0 00-.75-.75h-2.527c-.247-.442-.51-.876-.786-1.298a.75.75 0 00-1.314.75c.276.422.539.856.786 1.298H7.347a.75.75 0 00-.75.75v4.25a.75.75 0 00.75.75h9.306a.75.75 0 00.75-.75V8.122zM9.5 12.5a.75.75 0 000 1.5h5a.75.75 0 000-1.5h-5z" clip-rule="evenodd" /></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="text-sm mt-8 border-t border-primary-green-700 pt-8">&copy; <span id="currentYear"></span> Gozal Tea. All Rights Reserved. Crafted with passion in Wellington.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, // values from 0 to 3000, with step 50ms
+            once: true, // whether animation should happen only once - while scrolling down
+        });
+
+        // Loading spinner logic
+        window.addEventListener('load', function() {
+            const spinner = document.getElementById('loading-spinner');
+            if (spinner) {
+                spinner.style.display = 'none';
+            }
+        });
+
+        // Header scroll behavior
+        let lastScrollTop = 0;
+        const header = document.getElementById('main-header');
+        const headerHeight = header.offsetHeight; // Get header height dynamically
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
+                // Scroll Down
+                header.classList.remove('header-visible');
+                header.classList.add('header-hidden');
+            } else {
+                // Scroll Up or at the top
+                header.classList.remove('header-hidden');
+                header.classList.add('header-visible');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
