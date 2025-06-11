@@ -379,6 +379,31 @@
 
         /* General responsive adjustments */
         @media (max-width: 768px) {
+            #hero {
+                /* Ensure background image covers the area and is centered */
+                background-size: cover;
+                background-position: center center;
+            }
+            #hero h1 {
+                font-size: 2.5rem !important; /* Adjust h1 font size for mobile */
+                color: var(--color-off-white) !important; /* Ensure legibility over potentially dark image */
+                text-shadow: 1px 1px 4px rgba(0,0,0,0.6); /* Add shadow for legibility */
+            }
+            #hero p {
+                font-size: 1rem !important; /* Adjust paragraph font size for mobile */
+                color: var(--color-off-white) !important; /* Ensure legibility */
+                text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* Add shadow for legibility */
+                margin-bottom: 2rem !important; /* Adjust margin */
+            }
+            #hero .flex-col.sm\:flex-row a { /* Target buttons in hero */
+                width: 100%; /* Make buttons full width on small screens */
+                text-align: center;
+                margin-bottom: 0.75rem; /* Add some space between buttons if they stack */
+            }
+             #hero .flex-col.sm\:flex-row a:last-child {
+                margin-bottom: 0;
+            }
+
             /* Adjust header logo size for mobile */
             header .flex.items-center > svg {
                 width: 60px; /* Smaller size for mobile header */
@@ -406,10 +431,7 @@
                 d: "M 70 240 Q 200 270 330 240"; /* Slightly less deep curve if text is smaller */
             }
 
-            /* Adjust heading sizes for smaller screens */
-            h1 {
-                font-size: 3.5rem; /* ~56px */
-            }
+            /* Adjust heading sizes for smaller screens, hero h1 handled above */
             h2 {
                 font-size: 2.5rem; /* ~40px */
             }
@@ -424,13 +446,24 @@
             }
 
             /* Adjust padding for sections */
-            section {
+            section:not(#hero) { /* Avoid double padding hero */
                 padding-top: 4rem;
                 padding-bottom: 4rem;
             }
         }
 
         @media (max-width: 480px) { /* Even smaller phones */
+            #hero h1 {
+                font-size: 2rem !important; /* Further adjust h1 for very small screens */
+            }
+            #hero p {
+                font-size: 0.9rem !important; /* Further adjust p for very small screens */
+            }
+            #hero .flex-col.sm\:flex-row a { /* Target buttons in hero for very small screens */
+                 padding-top: 0.75rem;
+                 padding-bottom: 0.75rem;
+            }
+
             /* Adjust header logo size for very small mobile */
             header .flex.items-center > svg {
                 width: 50px; /* Even smaller size for very small mobile header */
@@ -458,10 +491,7 @@
                 d: "M 70 235 Q 200 265 330 235"; /* Further adjustment to curve for very small screens */
             }
 
-            /* Further adjust heading sizes for very small screens */
-            h1 {
-                font-size: 3rem; /* ~48px */
-            }
+            /* Further adjust heading sizes for very small screens, hero h1 handled above */
             h2 {
                 font-size: 2rem; /* ~32px */
             }
@@ -476,7 +506,7 @@
             }
 
             /* Adjust padding for sections */
-            section {
+            section:not(#hero) {  /* Avoid double padding hero */
                 padding-top: 3rem;
                 padding-bottom: 3rem;
             }
@@ -487,12 +517,13 @@
 
     <header id="main-header" class="bg-white shadow-sm py-4 fixed w-full z-50 top-0 header-visible">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
+            <a href="index.html" class="flex items-center space-x-2" aria-label="Gozal Tea Home">
                 <svg
                     viewBox="0 0 400 400"
                     class="w-20 h-20 md:w-32 md:h-32" /* Adjusted size for header logo */
                     xmlns="http://www.w3.org/2000/svg"
                     style="vertical-align: text-bottom;" /* Keeping text-bottom for general alignment within flex container */
+                    aria-hidden="true"
                 >
                     <defs>
                         <radialGradient id="goldenAura" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
@@ -612,19 +643,19 @@
                 <a href="products.html" class="text-gray-700 hover:text-primary-green-700 font-medium transition-colors duration-200">Products</a>
                 <a href="facilities.html" class="text-gray-700 hover:text-primary-green-700 font-medium transition-colors duration-200">Facilities</a>
                 <a href="blog.html" class="text-gray-700 hover:text-primary-green-700 font-medium transition-colors duration-200">Blog</a>
-                <a href="reachus.html" class="ml-6 px-6 py-3 bg-primary-green-700 text-white font-semibold rounded-lg shadow-md hover:bg-primary-primary-green-900 transition-colors duration-300 transform hover:scale-105" style="background-color: var(--color-primary-green-700);">
+                <a href="reachus.html" aria-label="Reach Us page" class="ml-6 px-6 py-3 bg-primary-green-700 text-white font-semibold rounded-lg shadow-md hover:bg-primary-green-900 transition-colors duration-300 transform hover:scale-105" style="background-color: var(--color-primary-green-700);">
                     REACH US
                 </a>
             </nav>
-            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary-green-700 focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <button id="mobile-menu-button" aria-label="Open mobile menu" class="md:hidden text-gray-700 hover:text-primary-green-700 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
         </div>
         <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-white bg-opacity-95 z-50 flex flex-col items-center justify-center space-y-8">
-            <button id="close-mobile-menu" class="absolute top-6 right-6 text-gray-700 hover:text-primary-green-700 focus:outline-none">
-                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <button id="close-mobile-menu" aria-label="Close mobile menu" class="absolute top-6 right-6 text-gray-700 hover:text-primary-green-700 focus:outline-none">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
@@ -637,29 +668,29 @@
         </div>
     </header>
 
-    <section id="hero" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100 py-20 overflow-hidden scroll-mt-20">
-        <div class="absolute inset-0 parallax-bg opacity-40 z-0" style="background-image: url('https://images.unsplash.com/photo-1690107644706-35e0f1cd0051?q=80&amp;w=2970&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"></div>
+    <section id="hero" class="relative min-h-screen flex items-center justify-center py-20 overflow-hidden scroll-mt-20" style="background-image: url('assets/images/hero-background-unsplash.jpg'); background-size: cover; background-position: center center;">
+        <div class="absolute inset-0 bg-black opacity-30 z-0"></div> {/* Overlay for better text legibility */}
         <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between py-12 md:py-24">
             <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
-                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6" style="color: var(--color-primary-green-900);">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6" style="color: var(--color-off-white); text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
                     Gozal Tea:<br>Crafting Your Fresh Start, Since 1970.
                 </h1>
-                <p class="text-lg md:text-xl text-gray-700 mb-10 max-w-lg mx-auto md:mx-0">
+                <p class="text-md sm:text-lg md:text-xl text-gray-200 mb-10 max-w-lg mx-auto md:mx-0" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
                     Discover the enduring quality and rich culture in every cup of our exquisite Leaf, Green, Fruit, and Herbal Teas, perfected in our UAE factory.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
                     <a href="products.html" class="inline-block bg-primary-green-700 text-white font-semibold px-10 py-4 rounded-lg shadow-xl hover:bg-primary-green-900 transition-colors duration-300 transform hover:scale-105" style="background-color: var(--color-primary-green-700);">
                         Explore Our Teas
                     </a>
-                    <a href="about.html" class="inline-block border-2 border-primary-green-700 text-primary-green-700 font-semibold px-10 py-4 rounded-lg shadow-md hover:bg-primary-green-700 hover:text-white transition-colors duration-300 transform hover:scale-105" style="color: var(--color-primary-green-700); border-color: var(--color-primary-green-700);">
+                    <a href="about.html" class="inline-block border-2 border-primary-green-500 text-gray-100 font-semibold px-10 py-4 rounded-lg shadow-md hover:bg-primary-green-700 hover:border-primary-green-700 hover:text-white transition-colors duration-300 transform hover:scale-105" style="border-color: var(--color-primary-green-500);">
                         Our Story
                     </a>
                 </div>
             </div>
-            <div class="md:w-1/2 flex justify-center relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                <div id="hero-image-container" class="relative w-full max-w-full h-auto flex justify-center items-center">
+            <div class="md:w-1/2 flex justify-center relative mt-10 md:mt-0" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <div id="hero-image-container" class="relative w-full max-w-sm sm:max-w-md md:max-w-lg h-auto flex justify-center items-center">
                     <div id="loading-spinner" class="loading-spinner"></div>
-                    <img id="hero-main-image" src="" alt="Gozal Tea luxury cup with mint leaves and lemon, and 'Start fresh. Stay inspired.' slogan." class="rounded-3xl shadow-2xl max-w-full h-auto transform rotate-3 hover:rotate-0 transition-transform duration-500 hidden" width="700" height="500">
+                    <img id="hero-main-image" src="" alt="Gozal Tea luxury cup with mint leaves and lemon, and 'Start fresh. Stay inspired.' slogan." class="rounded-3xl shadow-2xl max-w-full h-auto transform rotate-3 hover:rotate-0 transition-transform duration-500 hidden" style="max-height: 400px; object-fit: contain;">
                 </div>
             </div>
         </div>
@@ -750,19 +781,19 @@
                 <div class="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
                     <img src="./images/blog/green-tea-benefits.jpg" alt="Blog post image about tea benefits" class="mx-auto mb-4 rounded-md">
                     <h3 class="text-2xl font-bold mb-2" style="color: var(--color-primary-green-700);">The Health Benefits of Green Tea</h3>
-                    <p class="text-gray-700 text-left">Discover how a daily cup of green tea can boost your well-being and provide a fresh start to your health journey.</p>
+                    <p class="text-gray-700 text-left text-sm sm:text-base">Discover how a daily cup of green tea can boost your well-being and provide a fresh start to your health journey.</p>
                     <a href="blog.html" class="text-primary-green-700 hover:underline mt-4 inline-block">Read More &rarr;</a>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
                     <img src="./images/blog/tea-ceremonies.jpg" alt="Blog post image about tea ceremonies" class="mx-auto mb-4 rounded-md">
                     <h3 class="text-2xl font-bold mb-2" style="color: var(--color-primary-green-700);">A Journey Through Global Tea Ceremonies</h3>
-                    <p class="text-gray-700 text-left">Explore the rich cultural traditions surrounding tea from around the world, from Japan to the Middle East.</p>
+                    <p class="text-gray-700 text-left text-sm sm:text-base">Explore the rich cultural traditions surrounding tea from around the world, from Japan to the Middle East.</p>
                     <a href="blog.html" class="text-primary-green-700 hover:underline mt-4 inline-block">Read More &rarr;</a>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
                     <img src="./images/blog/sustainable-sourcing.jpg" alt="Blog post image about sustainable tea farming" class="mx-auto mb-4 rounded-md">
                     <h3 class="text-2xl font-bold mb-2" style="color: var(--color-primary-green-700);">Sustainable Sourcing: Our Commitment to the Planet</h3>
-                    <p class="text-gray-700 text-left">Learn about Gozal Tea's dedication to ethical and sustainable practices in every step of our tea production.</p>
+                    <p class="text-gray-700 text-left text-sm sm:text-base">Learn about Gozal Tea's dedication to ethical and sustainable practices in every step of our tea production.</p>
                     <a href="blog.html" class="text-primary-green-700 hover:underline mt-4 inline-block">Read More &rarr;</a>
                 </div>
             </div>
@@ -798,17 +829,17 @@
                 <p class="text-sm">Phone: +971 4 123 4567</p>
                 <p class="text-sm mt-4">Follow Us:</p>
                 <div class="flex justify-center md:justify-start space-x-4 mt-2">
-                    <a href="https://facebook.com" class="hover:text-primary-green-500 transition-colors duration-200" target="_blank" rel="noopener noreferrer">
+                    <a href="https://facebook.com" class="hover:text-primary-green-500 transition-colors duration-200" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.247 0-1.637.77-1.637 1.562V12h2.773l-.443 2.89h-2.33V22C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z" />
                         </svg>
                     </a>
-                    <a href="https://x.com" class="hover:text-primary-green-500 transition-colors duration-200" target="_blank" rel="noopener noreferrer">
+                    <a href="https://x.com" class="hover:text-primary-green-500 transition-colors duration-200" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X (formerly Twitter)">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.007-.532A8.318 8.318 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012 10.72c-.007.045-.007.09-.007.135a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.139a11.623 11.623 0 006.29 1.882" />
                         </svg>
                     </a>
-                    <a href="https://instagram.com" class="hover:text-primary-green-500 transition-colors duration-200" target="_blank" rel="noopener noreferrer">
+                    <a href="https://instagram.com" class="hover:text-primary-green-500 transition-colors duration-200" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path fill-rule="evenodd" d="M12 2C6.475 2 2 6.475 2 12a10 10 0 0010 10c5.525 0 10-4.475 10-10A10 10 0 0012 2zm5.403 7.872a.75.75 0 00-.75-.75h-2.527c-.247-.442-.51-.876-.786-1.298a.75.75 0 00-1.314.75c.276.422.539.856.786 1.298H7.347a.75.75 0 00-.75.75v4.25a.75.75 0 00.75.75h9.306a.75.75 0 00.75-.75V8.122zM9.5 12.5a.75.75 0 000 1.5h5a.75.75 0 000-1.5h-5z" clip-rule="evenodd" />
                         </svg>
@@ -817,7 +848,7 @@
             </div>
         </div>
         <div class="container mx-auto px-6 text-center mt-8 pt-8 border-t border-gray-700">
-            <p class="text-sm">&copy; <span id="current-year"></span> Gozal Tea. All rights reserved.</p>
+            <p class="text-xs sm:text-sm">&copy; <span id="current-year"></span> Gozal Tea. All rights reserved.</p>
         </div>
     </footer>
 
@@ -912,8 +943,8 @@
                     loadingSpinner.classList.add('hidden');
                     showMessageBox('Failed to load your static hero image. Please check the URL.');
                     // Fallback to a placeholder if static image fails
-                    heroMainImage.src = './images/hero-main-gozal-tea.jpg';
-                    heroMainImage.classList.remove('hidden');
+                    // heroMainImage.src = './images/hero-main-gozal-tea.jpg'; // Known to be missing
+                    heroMainImage.classList.remove('hidden'); // Keep it hidden or use a truly available placeholder
                 };
             } else {
                 // Proceed with AI image generation
@@ -946,21 +977,21 @@
                         };
                         heroMainImage.onerror = () => {
                             loadingSpinner.classList.add('hidden');
-                            showMessageBox('Failed to load generated image. Using a placeholder.');
-                            heroMainImage.src = './images/hero-main-gozal-tea.jpg';
-                            heroMainImage.classList.remove('hidden');
+                            showMessageBox('Failed to load generated image. Image will remain hidden.');
+                            // heroMainImage.src = './images/hero-main-gozal-tea.jpg'; // Known to be missing - Prevent loading
+                            // heroMainImage.classList.remove('hidden'); // Keep it hidden
                         };
                     } else {
-                        showMessageBox('No image data received from the API. Using a placeholder.');
-                        heroMainImage.src = './images/hero-main-gozal-tea.jpg';
-                        heroMainImage.classList.remove('hidden');
+                        showMessageBox('No image data received from the API. Image will remain hidden.');
+                        // heroMainImage.src = './images/hero-main-gozal-tea.jpg'; // Known to be missing - Prevent loading
+                        // heroMainImage.classList.remove('hidden'); // Keep it hidden
                         loadingSpinner.classList.add('hidden');
                     }
                 } catch (error) {
                     console.error('Error generating image:', error);
-                    showMessageBox(`Error generating image: ${error.message}. Using a placeholder.`);
-                    heroMainImage.src = './images/hero-main-gozal-tea.jpg';
-                    heroMainImage.classList.remove('hidden');
+                    showMessageBox(`Error generating image: ${error.message}. Image will remain hidden.`);
+                    // heroMainImage.src = './images/hero-main-gozal-tea.jpg'; // Known to be missing - Prevent loading
+                    // heroMainImage.classList.remove('hidden'); // Keep it hidden
                     loadingSpinner.classList.add('hidden');
                 }
             }
